@@ -56,5 +56,15 @@ void MainWindow::on_pushButton_5_clicked()
 void MainWindow::on_pushButton_3_clicked()
 {
     solveSudoku = new SolveSudokuWindow();
+    this->close();
     connect(solveSudoku, &SolveSudokuWindow::mainWindow, this, &MainWindow::show);
+    solveSudoku->show();
+}
+
+void MainWindow::on_pushButton_4_clicked()
+{
+    topResults = new TopResultsWindow();
+    this->close();
+    connect(topResults, &TopResultsWindow::mainWindow, this, &MainWindow::show);
+    topResults->show();
 }

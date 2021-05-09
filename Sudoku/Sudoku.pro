@@ -13,19 +13,22 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     solvesudokuwindow.cpp \
-    sudokugenerationwindow.cpp
+    sudokugenerationwindow.cpp \
+    topresultswindow.cpp
 
 HEADERS += \
     difficultywindow.h \
     mainwindow.h \
     solvesudokuwindow.h \
-    sudokugenerationwindow.h
+    sudokugenerationwindow.h \
+    topresultswindow.h
 
 FORMS += \
     difficultywindow.ui \
     mainwindow.ui \
     solvesudokuwindow.ui \
-    sudokugenerationwindow.ui
+    sudokugenerationwindow.ui \
+    topresultswindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

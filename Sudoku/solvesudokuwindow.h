@@ -2,6 +2,8 @@
 #define SOLVESUDOKUWINDOW_H
 
 #include <QDialog>
+#include <QLineEdit>
+#include <QValidator>
 
 namespace Ui {
 class SolveSudokuWindow;
@@ -19,10 +21,11 @@ signals:
     void mainWindow();
 
 private slots:
-    void on_pushButton_7_clicked();
+    void on_pushButton_4_clicked();
 
 private:
     Ui::SolveSudokuWindow *ui;
+    QList<QLineEdit*> list;
 };
 
 #endif // SOLVESUDOKUWINDOW_H

@@ -26,7 +26,7 @@ SolveSudokuWindow::~SolveSudokuWindow()
     delete ui;
 }
 
-void SolveSudokuWindow::on_pushButton_7_clicked()
+void SolveSudokuWindow::on_pushButton_4_clicked()
 {
     this->close();
     emit mainWindow();
