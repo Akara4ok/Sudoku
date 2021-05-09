@@ -1,6 +1,6 @@
 #include "difficultywindow.h"
 #include "ui_difficultywindow.h"
-#include "sudokugenerationwindow.h"
+#include "mainwindow.h"
 
 DifficultyWindow::DifficultyWindow(QWidget *parent) :
     QDialog(parent),
@@ -16,7 +16,31 @@ DifficultyWindow::~DifficultyWindow()
 
 void DifficultyWindow::on_pushButton_clicked()
 {
-    SudokuGenerationWindow generation;
-    generation.setModal(true);
-    generation.exec();
+    sudoku = new SudokuGenerationWindow(nullptr, "Easy");
+    connect(sudoku, &SudokuGenerationWindow::difficulty, this, &DifficultyWindow::show);
+    this->close();
+    sudoku->show();
+}
+
+void DifficultyWindow::on_pushButton_2_clicked()
+{
+    sudoku = new SudokuGenerationWindow(nullptr, "Medium");
+    connect(sudoku, &SudokuGenerationWindow::difficulty, this, &DifficultyWindow::show);
+    this->close();
+    sudoku->show();
+}
+
+void DifficultyWindow::on_pushButton_3_clicked()
+{
+    sudoku = new SudokuGenerationWindow(nullptr, "Expert");
+    connect(sudoku, &SudokuGenerationWindow::difficulty, this, &DifficultyWindow::show);
+    this->close();
+    sudoku->show();
+}
+
+
+void DifficultyWindow::on_pushButton_4_clicked()
+{
+    this->close();
+    emit mainWindow();
 }

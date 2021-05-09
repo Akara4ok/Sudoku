@@ -12,16 +12,19 @@ SOURCES += \
     difficultywindow.cpp \
     main.cpp \
     mainwindow.cpp \
+    solvesudoku.cpp \
     sudokugenerationwindow.cpp
 
 HEADERS += \
     difficultywindow.h \
     mainwindow.h \
+    solvesudoku.h \
     sudokugenerationwindow.h
 
 FORMS += \
     difficultywindow.ui \
     mainwindow.ui \
+    solvesudoku.ui \
     sudokugenerationwindow.ui
 
 # Default rules for deployment.

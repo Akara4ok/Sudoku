@@ -86,7 +86,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Load</string>
+     <string>Solve</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_4">

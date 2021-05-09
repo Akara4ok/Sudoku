@@ -1,12 +1,14 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "difficultywindow.h"
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    difficulty = new DifficultyWindow();
+    connect(difficulty, &DifficultyWindow::mainWindow, this, &MainWindow::show);
 }
 
 MainWindow::~MainWindow()
@@ -17,7 +19,11 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-    DifficultyWindow difficultyWindow;
-    difficultyWindow.setModal(true);
-    difficultyWindow.exec();
+   this->close();
+   difficulty->show();
+}
+
+void MainWindow::on_pushButton_5_clicked()
+{
+    this->close();
 }

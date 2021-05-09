@@ -1,18 +1,11 @@
-#include "sudokugenerationwindow.h"
-#include "ui_sudokugenerationwindow.h"
+#include "solvesudoku.h"
+#include "ui_solvesudoku.h"
 
-SudokuGenerationWindow::SudokuGenerationWindow(QWidget *parent, QString s) :
+SolveSudoku::SolveSudoku(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::SudokuGenerationWindow)
+    ui(new Ui::SolveSudoku)
 {
     ui->setupUi(this);
-
-    ui->label->setText("Sudoku(" + s + ")");
-
-    QTimer *timer = new QTimer(this);
-    connect(timer, SIGNAL(timeout()), this, SLOT(onTimeout()));
-    timer->start(1000);
-    time = 0;
 
     list = {ui->lineEdit, ui->lineEdit_2, ui->lineEdit_3, ui->lineEdit_4, ui->lineEdit_5, ui->lineEdit_6, ui->lineEdit_7, ui->lineEdit_8, ui->lineEdit_9,
             ui->lineEdit_10, ui->lineEdit_11, ui->lineEdit_12, ui->lineEdit_13, ui->lineEdit_14, ui->lineEdit_15, ui->lineEdit_16, ui->lineEdit_17, ui->lineEdit_18,
@@ -27,20 +20,7 @@ SudokuGenerationWindow::SudokuGenerationWindow(QWidget *parent, QString s) :
         list.at(i)->setValidator(new QIntValidator);
 }
 
-SudokuGenerationWindow::~SudokuGenerationWindow()
+SolveSudoku::~SolveSudoku()
 {
     delete ui;
-}
-
-void SudokuGenerationWindow::onTimeout()
-{
-    time++;
-    ui->lcdNumber->display(time);
-}
-
-void SudokuGenerationWindow::on_pushButton_4_clicked()
-{
-    this->close();
-    emit difficulty();
-    delete this;
 }

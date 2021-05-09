@@ -17,11 +17,16 @@ class SudokuGenerationWindow : public QDialog
     Q_OBJECT
 
 public:
-    explicit SudokuGenerationWindow(QWidget *parent = nullptr);
+    explicit SudokuGenerationWindow(QWidget *parent = nullptr, QString s = "");
     ~SudokuGenerationWindow();
+
+signals:
+    void difficulty();
 
 private slots:
     void onTimeout();
+
+    void on_pushButton_4_clicked();
 
 private:
     Ui::SudokuGenerationWindow *ui;
