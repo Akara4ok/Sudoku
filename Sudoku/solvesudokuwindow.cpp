@@ -1,9 +1,9 @@
-#include "solvesudoku.h"
-#include "ui_solvesudoku.h"
+#include "solvesudokuwindow.h"
+#include "ui_solvesudokuwindow.h"
 
-SolveSudoku::SolveSudoku(QWidget *parent) :
+SolveSudokuWindow::SolveSudokuWindow(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::SolveSudoku)
+    ui(new Ui::SolveSudokuWindow)
 {
     ui->setupUi(this);
 
@@ -16,11 +16,19 @@ SolveSudoku::SolveSudoku(QWidget *parent) :
             ui->lineEdit_55, ui->lineEdit_56, ui->lineEdit_57, ui->lineEdit_58, ui->lineEdit_59, ui->lineEdit_60, ui->lineEdit_61, ui->lineEdit_62, ui->lineEdit_63,
             ui->lineEdit_64, ui->lineEdit_65, ui->lineEdit_66, ui->lineEdit_67, ui->lineEdit_68, ui->lineEdit_69, ui->lineEdit_70, ui->lineEdit_71, ui->lineEdit_72,
             ui->lineEdit_73, ui->lineEdit_74, ui->lineEdit_75, ui->lineEdit_76, ui->lineEdit_77, ui->lineEdit_78, ui->lineEdit_79, ui->lineEdit_80, ui->lineEdit_81};
+
     for (int i = 0; i < 81; i++)
         list.at(i)->setValidator(new QIntValidator);
 }
 
-SolveSudoku::~SolveSudoku()
+SolveSudokuWindow::~SolveSudokuWindow()
 {
     delete ui;
+}
+
+void SolveSudokuWindow::on_pushButton_7_clicked()
+{
+    this->close();
+    emit mainWindow();
+    delete this;
 }

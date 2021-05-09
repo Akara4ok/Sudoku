@@ -52,3 +52,9 @@ void MainWindow::on_pushButton_5_clicked()
 {
     this->close();
 }
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    solveSudoku = new SolveSudokuWindow();
+    connect(solveSudoku, &SolveSudokuWindow::mainWindow, this, &MainWindow::show);
+}
