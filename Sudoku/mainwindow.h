@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "difficultywindow.h"
+#include "sudokugenerationwindow.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -23,5 +24,9 @@ private slots:
 private:
     Ui::MainWindow *ui;
     DifficultyWindow* difficulty;
+    SudokuGenerationWindow* sudokuGeneration;
+    void easySudoku();
+    void mediumSudoku();
+    void expertSudoku();
 };
 #endif // MAINWINDOW_H

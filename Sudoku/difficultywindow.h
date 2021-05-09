@@ -2,7 +2,6 @@
 #define DIFFICULTYWINDOW_H
 
 #include <QDialog>
-#include "sudokugenerationwindow.h"
 
 namespace Ui {
 class DifficultyWindow;
@@ -18,6 +17,9 @@ public:
 
 signals:
     void mainWindow();
+    void easy();
+    void medium();
+    void expert();
 
 private slots:
     void on_pushButton_clicked();
@@ -27,7 +29,6 @@ private slots:
 
 private:
     Ui::DifficultyWindow *ui;
-    SudokuGenerationWindow* sudoku;
 };
 
 #endif // DIFFICULTYWINDOW_H

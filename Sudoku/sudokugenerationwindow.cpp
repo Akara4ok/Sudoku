@@ -1,13 +1,11 @@
 #include "sudokugenerationwindow.h"
 #include "ui_sudokugenerationwindow.h"
 
-SudokuGenerationWindow::SudokuGenerationWindow(QWidget *parent, QString s) :
+SudokuGenerationWindow::SudokuGenerationWindow(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::SudokuGenerationWindow)
 {
     ui->setupUi(this);
-
-    ui->label->setText("Sudoku(" + s + ")");
 
     QTimer *timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(onTimeout()));
@@ -32,6 +30,12 @@ SudokuGenerationWindow::~SudokuGenerationWindow()
     delete ui;
 }
 
+void SudokuGenerationWindow::setDifficulty(QString s)
+{
+    difficulty = s;
+    ui->label->setText("Sudoku("+difficulty+")");
+}
+
 void SudokuGenerationWindow::onTimeout()
 {
     time++;
@@ -41,6 +45,7 @@ void SudokuGenerationWindow::onTimeout()
 void SudokuGenerationWindow::on_pushButton_4_clicked()
 {
     this->close();
-    emit difficulty();
+    //emit difficulty();
+    emit mainWindow();
     delete this;
 }
