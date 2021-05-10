@@ -7,6 +7,7 @@
 #include <QTimer>
 #include <QString>
 #include <QLCDNumber>
+#include <QMessageBox>
 #include "sudoku.h"
 
 namespace Ui {
@@ -20,19 +21,25 @@ class SudokuGenerationWindow : public QDialog
 public:
     explicit SudokuGenerationWindow(QWidget *parent = nullptr, QString difficulty = "");
     ~SudokuGenerationWindow();
+    int getTime();
 
 signals:
     void mainWindow();
+    void showResults();
 
 private slots:
     void onTimeout();
     void on_pushButton_4_clicked();
+    void on_pushButton_5_clicked();
+    void on_pushButton_2_clicked();
 
 private:
     Ui::SudokuGenerationWindow *ui;
     QList<QLineEdit*> list;
     QString difficulty;
     int time;
+    QTimer *timer;
+    Sudoku sudoku;
 
     //QLineEdit* lineEdit = new QLineEdit();
 };

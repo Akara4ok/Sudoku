@@ -42,7 +42,7 @@ Sudoku::Sudoku(QList<QLineEdit*> list)
     for (int i = 0; i < rows; i++)
         matrix.push(extraMatrix[i], i, columns);
 
-    fillStack(matrix);
+    fillStack(grid, matrix);
 }
 
 void Sudoku::fillExtraMatrix()
@@ -68,7 +68,7 @@ void Sudoku::fillExtraMatrix()
             extraMatrix[i][243 + ((i / 81) / 3) * 27 + (((i / 9) % 9) / 3) * 9 + i % 9] = 1;
 }
 
-void Sudoku::fillStack(DLX& matrix)
+void Sudoku::fillStack(int**grid, DLX& matrix)
 {
     int r;
     for (int i = 0; i < 9; i++)
@@ -131,7 +131,7 @@ bool Sudoku::algorithmX()
     return false;
 }
 
-void Sudoku::algorithmX(DLX&, int&count)
+void Sudoku::algorithmX(DLX& matrix, int&count)
 {
     if (matrix.head->right == matrix.head)
     {
@@ -269,7 +269,7 @@ void Sudoku::randSudoku()
     fillExtraMatrix();
     for (int i = 0; i < rows; i++)
         matrix.push(extraMatrix[i], i, columns);
-    fillStack(matrix);
+    fillStack(grid, matrix);
     if (algorithmX())
     {
         for (int i = 0; i < stack.size(); i++)
@@ -289,6 +289,7 @@ int** Sudoku::deleteCells(int total)
         for (int j = 0; j < 9; j++)
             result[i][j] = grid[i][j];
     }
+    stack.clear();
     int i, j;
     int zeroCells = 0;
     fillExtraMatrix();
@@ -304,12 +305,12 @@ int** Sudoku::deleteCells(int total)
             i = k / 9;
             j = k % 9;
             stack.clear();
-            DLX matrix1;
+            DLX matrix;
             for (int i = 0; i < rows; i++)
-                matrix1.push(extraMatrix[i], i, columns);
+                matrix.push(extraMatrix[i], i, columns);
             int temp = result[i][j];
             result[i][j] = 0;
-            fillStack(matrix1);
+            fillStack(result, matrix);
             int count = 0;
             algorithmX(matrix, count);
             if (count == 1)
@@ -343,5 +344,18 @@ void Sudoku::generate(QList<QLineEdit*>&list, QString difficulty)
     for (int i = 0; i < 9; i++)
         for (int j = 0; j < 9; j++)
             if (randomSudoku[i][j]!=0)
+            {
                 list.at(i*9 + j)->setText(QString::number(randomSudoku[i][j]));
+                list.at(i*9 + j)->setReadOnly(true);
+            }
+}
+
+bool Sudoku::equal(QList<QLineEdit*>list)
+{
+    bool result = true;
+    for (int i = 0; i < 9; i++)
+        for(int j = 0; j < 9; j++)
+            if ((list.at(i*9 + j)->text()).toInt() != grid[i][j])
+                result = false;
+    return result;
 }

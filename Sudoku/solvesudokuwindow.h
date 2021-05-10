@@ -5,6 +5,7 @@
 #include <QLineEdit>
 #include <QValidator>
 #include "sudoku.h"
+#include <QRegularExpressionValidator>
 
 namespace Ui {
 class SolveSudokuWindow;
@@ -25,6 +26,8 @@ private slots:
     void on_pushButton_4_clicked();
 
     void on_pushButton_2_clicked();
+
+    void on_pushButton_5_clicked();
 
 private:
     Ui::SolveSudokuWindow *ui;

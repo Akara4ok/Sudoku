@@ -17,8 +17,9 @@ SolveSudokuWindow::SolveSudokuWindow(QWidget *parent) :
             ui->lineEdit_64, ui->lineEdit_65, ui->lineEdit_66, ui->lineEdit_67, ui->lineEdit_68, ui->lineEdit_69, ui->lineEdit_70, ui->lineEdit_71, ui->lineEdit_72,
             ui->lineEdit_73, ui->lineEdit_74, ui->lineEdit_75, ui->lineEdit_76, ui->lineEdit_77, ui->lineEdit_78, ui->lineEdit_79, ui->lineEdit_80, ui->lineEdit_81};
 
+    QRegularExpression rx("[1-9]");
     for (int i = 0; i < 81; i++)
-        list.at(i)->setValidator(new QIntValidator);
+        list.at(i)->setValidator(new QRegularExpressionValidator(rx, this));
 }
 
 SolveSudokuWindow::~SolveSudokuWindow()
@@ -37,4 +38,10 @@ void SolveSudokuWindow::on_pushButton_2_clicked()
 {
     Sudoku sudoku(list);
     sudoku.solve(list);
+}
+
+void SolveSudokuWindow::on_pushButton_5_clicked()
+{
+    for (int i = 0; i < list.size(); i++)
+        list.at(i)->clear();
 }

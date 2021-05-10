@@ -15,7 +15,7 @@ class Sudoku
     DLX matrix;
     QVector<int> stack;
     void fillExtraMatrix();
-    void fillStack(DLX&);
+    void fillStack(int**, DLX&);
     bool algorithmX();
     void algorithmX(DLX&, int&);
     void swapRows(int, int);
@@ -31,6 +31,7 @@ public:
     Sudoku(QList<QLineEdit*>);
     void solve(QList<QLineEdit*>&);
     void generate(QList<QLineEdit*>&, QString);
+    bool equal(QList<QLineEdit*>);
 
 };
 

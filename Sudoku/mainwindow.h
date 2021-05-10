@@ -37,5 +37,7 @@ private:
     void easySudoku();
     void mediumSudoku();
     void expertSudoku();
+    void showR();
+    void closeR();
 };
 #endif // MAINWINDOW_H

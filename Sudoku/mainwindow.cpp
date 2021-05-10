@@ -22,6 +22,7 @@ void MainWindow::easySudoku()
 {
     sudokuGeneration = new SudokuGenerationWindow(nullptr, "Easy");
     sudokuGeneration->show();
+    connect(sudokuGeneration, &SudokuGenerationWindow::showResults, this, &MainWindow::showR);
     connect(sudokuGeneration, &SudokuGenerationWindow::mainWindow, this, &MainWindow::show);
 }
 
@@ -29,6 +30,7 @@ void MainWindow::mediumSudoku()
 {
     sudokuGeneration = new SudokuGenerationWindow(nullptr, "Medium");
     sudokuGeneration->show();
+    connect(sudokuGeneration, &SudokuGenerationWindow::showResults, this, &MainWindow::showR);
     connect(sudokuGeneration, &SudokuGenerationWindow::mainWindow, this, &MainWindow::show);
 }
 
@@ -36,6 +38,7 @@ void MainWindow::expertSudoku()
 {
     sudokuGeneration = new SudokuGenerationWindow(nullptr, "Expert");
     sudokuGeneration->show();
+    connect(sudokuGeneration, &SudokuGenerationWindow::showResults, this, &MainWindow::showR);
     connect(sudokuGeneration, &SudokuGenerationWindow::mainWindow, this, &MainWindow::show);
 }
 
@@ -64,4 +67,18 @@ void MainWindow::on_pushButton_4_clicked()
     this->close();
     connect(topResults, &TopResultsWindow::mainWindow, this, &MainWindow::show);
     topResults->show();
+}
+
+void MainWindow::showR()
+{
+    topResults = new TopResultsWindow(nullptr, "Congratulations!!!!", sudokuGeneration->getTime());
+    connect(topResults, &TopResultsWindow::mainWindow, this, &MainWindow::closeR);
+    topResults->show();
+}
+
+void MainWindow::closeR()
+{
+    sudokuGeneration->close();
+    delete sudokuGeneration;
+    this->show();
 }

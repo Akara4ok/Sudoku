@@ -7,7 +7,7 @@ SudokuGenerationWindow::SudokuGenerationWindow(QWidget *parent, QString difficul
 {
     ui->setupUi(this);
 
-    QTimer *timer = new QTimer(this);
+    timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(onTimeout()));
     timer->start(1000);
     time = 0;
@@ -21,12 +21,13 @@ SudokuGenerationWindow::SudokuGenerationWindow(QWidget *parent, QString difficul
             ui->lineEdit_55, ui->lineEdit_56, ui->lineEdit_57, ui->lineEdit_58, ui->lineEdit_59, ui->lineEdit_60, ui->lineEdit_61, ui->lineEdit_62, ui->lineEdit_63,
             ui->lineEdit_64, ui->lineEdit_65, ui->lineEdit_66, ui->lineEdit_67, ui->lineEdit_68, ui->lineEdit_69, ui->lineEdit_70, ui->lineEdit_71, ui->lineEdit_72,
             ui->lineEdit_73, ui->lineEdit_74, ui->lineEdit_75, ui->lineEdit_76, ui->lineEdit_77, ui->lineEdit_78, ui->lineEdit_79, ui->lineEdit_80, ui->lineEdit_81};
+
+    QRegularExpression rx("[1-9]");
     for (int i = 0; i < 81; i++)
-        list.at(i)->setValidator(new QIntValidator);
+        list.at(i)->setValidator(new QRegularExpressionValidator(rx, this));
 
     ui->label->setText("Sudoku("+difficulty+")");
 
-    Sudoku sudoku;
     sudoku.generate(list, difficulty);
 }
 
@@ -47,4 +48,31 @@ void SudokuGenerationWindow::on_pushButton_4_clicked()
     //emit difficulty();
     emit mainWindow();
     delete this;
+}
+
+void SudokuGenerationWindow::on_pushButton_5_clicked()
+{
+    for (int i = 0; i < list.size(); i++)
+        if (!list.at(i)->isReadOnly())
+            list.at(i)->clear();
+}
+
+void SudokuGenerationWindow::on_pushButton_2_clicked()
+{
+    if (sudoku.equal(list))
+    {
+        emit showResults();
+        timer->stop();
+    }
+    else
+    {
+        timer->stop();
+        QMessageBox::about(0, "Incorrect", "You've made some mistakes. Try again");
+        timer->start(1000);
+    }
+}
+
+int SudokuGenerationWindow::getTime()
+{
+    return time;
 }

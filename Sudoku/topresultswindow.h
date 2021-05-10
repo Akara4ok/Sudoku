@@ -19,7 +19,7 @@ signals:
     void mainWindow();
 
 public:
-    explicit TopResultsWindow(QWidget *parent = nullptr);
+    explicit TopResultsWindow(QWidget *parent = nullptr, QString s = "Top Results", int time = 0);
     ~TopResultsWindow();
 
 private slots:

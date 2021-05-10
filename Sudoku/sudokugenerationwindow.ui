@@ -110,6 +110,9 @@ QLineEdit:hover{
    <property name="alignment">
     <set>Qt::AlignCenter</set>
    </property>
+   <property name="readOnly">
+    <bool>false</bool>
+   </property>
   </widget>
   <widget class="QLineEdit" name="lineEdit_2">
    <property name="enabled">
@@ -5315,7 +5318,7 @@ QLineEdit:hover{
    <property name="geometry">
     <rect>
      <x>330</x>
-     <y>220</y>
+     <y>270</y>
      <width>111</width>
      <height>41</height>
     </rect>
@@ -5371,6 +5374,19 @@ QLineEdit:hover{
      <width>111</width>
      <height>61</height>
     </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_5">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>200</y>
+     <width>111</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Clear</string>
    </property>
   </widget>
  </widget>

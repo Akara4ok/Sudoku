@@ -1,7 +1,7 @@
 #include "topresultswindow.h"
 #include "ui_topresultswindow.h"
 
-TopResultsWindow::TopResultsWindow(QWidget *parent) :
+TopResultsWindow::TopResultsWindow(QWidget *parent, QString s, int time) :
     QDialog(parent),
     ui(new Ui::TopResultsWindow)
 {
@@ -11,6 +11,9 @@ TopResultsWindow::TopResultsWindow(QWidget *parent) :
     model->setHeaderData(1, Qt::Horizontal, "Time");
     model->setHeaderData(2, Qt::Horizontal, "Hints");
     ui->tableView->setModel(model);
+    ui->label->setText(s);
+    if (time != 0)
+        ui->label_3->setText("Your time: " + QString::number(time) + "s");
 }
 
 TopResultsWindow::~TopResultsWindow()
