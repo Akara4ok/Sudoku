@@ -32,3 +32,9 @@ void SolveSudokuWindow::on_pushButton_4_clicked()
     emit mainWindow();
     delete this;
 }
+
+void SolveSudokuWindow::on_pushButton_2_clicked()
+{
+    Sudoku sudoku(list);
+    sudoku.solve(list);
+}

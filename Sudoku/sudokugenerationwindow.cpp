@@ -1,7 +1,7 @@
 #include "sudokugenerationwindow.h"
 #include "ui_sudokugenerationwindow.h"
 
-SudokuGenerationWindow::SudokuGenerationWindow(QWidget *parent) :
+SudokuGenerationWindow::SudokuGenerationWindow(QWidget *parent, QString difficulty) :
     QDialog(parent),
     ui(new Ui::SudokuGenerationWindow)
 {
@@ -23,17 +23,16 @@ SudokuGenerationWindow::SudokuGenerationWindow(QWidget *parent) :
             ui->lineEdit_73, ui->lineEdit_74, ui->lineEdit_75, ui->lineEdit_76, ui->lineEdit_77, ui->lineEdit_78, ui->lineEdit_79, ui->lineEdit_80, ui->lineEdit_81};
     for (int i = 0; i < 81; i++)
         list.at(i)->setValidator(new QIntValidator);
+
+    ui->label->setText("Sudoku("+difficulty+")");
+
+    Sudoku sudoku;
+    sudoku.generate(list, difficulty);
 }
 
 SudokuGenerationWindow::~SudokuGenerationWindow()
 {
     delete ui;
-}
-
-void SudokuGenerationWindow::setDifficulty(QString s)
-{
-    difficulty = s;
-    ui->label->setText("Sudoku("+difficulty+")");
 }
 
 void SudokuGenerationWindow::onTimeout()

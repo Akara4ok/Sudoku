@@ -7,6 +7,7 @@
 #include <QTimer>
 #include <QString>
 #include <QLCDNumber>
+#include "sudoku.h"
 
 namespace Ui {
 class SudokuGenerationWindow;
@@ -17,9 +18,8 @@ class SudokuGenerationWindow : public QDialog
     Q_OBJECT
 
 public:
-    explicit SudokuGenerationWindow(QWidget *parent = nullptr);
+    explicit SudokuGenerationWindow(QWidget *parent = nullptr, QString difficulty = "");
     ~SudokuGenerationWindow();
-    void setDifficulty(QString s);
 
 signals:
     void mainWindow();

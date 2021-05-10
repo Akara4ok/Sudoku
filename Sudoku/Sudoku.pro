@@ -10,16 +10,21 @@ CONFIG += c++11
 
 SOURCES += \
     difficultywindow.cpp \
+    dlx.cpp \
     main.cpp \
     mainwindow.cpp \
     solvesudokuwindow.cpp \
+    sudoku.cpp \
     sudokugenerationwindow.cpp \
     topresultswindow.cpp
 
 HEADERS += \
+    Node.h \
     difficultywindow.h \
+    dlx.h \
     mainwindow.h \
     solvesudokuwindow.h \
+    sudoku.h \
     sudokugenerationwindow.h \
     topresultswindow.h
 

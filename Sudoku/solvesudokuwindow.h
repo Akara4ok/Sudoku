@@ -4,6 +4,7 @@
 #include <QDialog>
 #include <QLineEdit>
 #include <QValidator>
+#include "sudoku.h"
 
 namespace Ui {
 class SolveSudokuWindow;
@@ -22,6 +23,8 @@ signals:
 
 private slots:
     void on_pushButton_4_clicked();
+
+    void on_pushButton_2_clicked();
 
 private:
     Ui::SolveSudokuWindow *ui;

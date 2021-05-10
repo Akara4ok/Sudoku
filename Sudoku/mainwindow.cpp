@@ -20,24 +20,21 @@ MainWindow::~MainWindow()
 
 void MainWindow::easySudoku()
 {
-    sudokuGeneration = new SudokuGenerationWindow();
-    sudokuGeneration->setDifficulty("Easy");
+    sudokuGeneration = new SudokuGenerationWindow(nullptr, "Easy");
     sudokuGeneration->show();
     connect(sudokuGeneration, &SudokuGenerationWindow::mainWindow, this, &MainWindow::show);
 }
 
 void MainWindow::mediumSudoku()
 {
-    sudokuGeneration = new SudokuGenerationWindow();
-    sudokuGeneration->setDifficulty("Medium");
+    sudokuGeneration = new SudokuGenerationWindow(nullptr, "Medium");
     sudokuGeneration->show();
     connect(sudokuGeneration, &SudokuGenerationWindow::mainWindow, this, &MainWindow::show);
 }
 
 void MainWindow::expertSudoku()
 {
-    sudokuGeneration = new SudokuGenerationWindow();
-    sudokuGeneration->setDifficulty("Expert");
+    sudokuGeneration = new SudokuGenerationWindow(nullptr, "Expert");
     sudokuGeneration->show();
     connect(sudokuGeneration, &SudokuGenerationWindow::mainWindow, this, &MainWindow::show);
 }
