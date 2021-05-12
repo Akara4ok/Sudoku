@@ -76,3 +76,44 @@ int SudokuGenerationWindow::getTime()
 {
     return time;
 }
+
+void SudokuGenerationWindow::on_pushButton_3_clicked()
+{
+    timer->stop();
+    int ind, value;
+    sudoku.hint(list, ind, value);
+    if (ind != -1)
+    {
+    list.at(ind)->setText(QString::number(value));
+    list.at(ind)->setStyleSheet("color: red");
+    list.at(ind)->setReadOnly(true);
+    int r, c;
+    r = ind / 9 + 1;
+    c = ind% 9 + 1;
+    QMessageBox::about(0, "Hint", "In (" + QString::number(r) + " row, " + QString::number(c) + " column) you sholud put: " + QString::number(value));
+    }
+    timer->start(1000);
+}
+
+void SudokuGenerationWindow::on_pushButton_6_clicked()
+{
+    timer->stop();
+    sudoku.showSolutions(list);
+    ui->pushButton->setEnabled(false);
+    ui->pushButton_2->setEnabled(false);
+    ui->pushButton_3->setEnabled(false);
+    ui->pushButton_5->setEnabled(false);
+    ui->pushButton_6->setEnabled(false);
+}
+
+void SudokuGenerationWindow::on_pushButton_7_clicked()
+{
+    if (timer->isActive())
+    {
+        timer->stop();
+        QMessageBox::about(0, "Rules", "Судоку – це головоломка з числами. Ігрове поле – це квадрат 9х9, який розділений на менші квадрати 3х3. На початку гри в деяких клітинках вже стоять числа(підсказки). Гравець повинен вписати числа в пусті клітинки, так щоб в кожному рядку, стовпчику та квадраті 3х3 кожна цифра зустрічалась тільки один раз.");
+        timer->start(1000);
+    }
+    else
+        QMessageBox::about(0, "Rules", "Судоку – це головоломка з числами. Ігрове поле – це квадрат 9х9, який розділений на менші квадрати 3х3. На початку гри в деяких клітинках вже стоять числа(підсказки). Гравець повинен вписати числа в пусті клітинки, так щоб в кожному рядку, стовпчику та квадраті 3х3 кожна цифра зустрічалась тільки один раз.");
+}

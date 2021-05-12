@@ -32,6 +32,8 @@ public:
     void solve(QList<QLineEdit*>&);
     void generate(QList<QLineEdit*>&, QString);
     bool equal(QList<QLineEdit*>);
+    void hint(QList<QLineEdit*>, int&, int&);
+    void showSolutions(QList<QLineEdit*>);
 
 };
 

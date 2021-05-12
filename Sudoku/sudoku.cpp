@@ -172,7 +172,10 @@ void Sudoku::solve(QList<QLineEdit*>&list)
             grid[stack[i] / 81][(stack[i] / 9) % 9] = stack[i] % 9 + 1;
         }
         for (int i = 0; i < 81; i++)
+        {
             list.at(i)->setText(QString::number(grid[i / 9][i % 9]));
+            list.at(i)->setReadOnly(true);
+        }
      }
 }
 
@@ -347,6 +350,7 @@ void Sudoku::generate(QList<QLineEdit*>&list, QString difficulty)
             {
                 list.at(i*9 + j)->setText(QString::number(randomSudoku[i][j]));
                 list.at(i*9 + j)->setReadOnly(true);
+                list.at(i*9 + j)->setStyleSheet("color: black");
             }
 }
 
@@ -358,4 +362,34 @@ bool Sudoku::equal(QList<QLineEdit*>list)
             if ((list.at(i*9 + j)->text()).toInt() != grid[i][j])
                 result = false;
     return result;
+}
+
+void Sudoku::hint(QList<QLineEdit*>list, int&ind, int&value)
+{
+    QList<int> avail;
+    for (int i = 0; i < 9; i++)
+        for(int j = 0; j < 9; j++)
+            if ((list.at(i*9 + j)->text()).toInt() != grid[i][j])
+                avail.push_back(i*9 + j);
+    ind = -1;
+    if (!avail.empty())
+    {
+        int r = rand()%(avail.size());
+        ind = avail.at(r);
+        value = grid[ind / 9][ind % 9];
+    }
+}
+
+void Sudoku::showSolutions(QList<QLineEdit*>list)
+{
+    for (int i = 0; i < 9; i++)
+        for(int j = 0; j < 9; j++)
+        {
+            list.at(i*9 + j)->setReadOnly(true);
+            if ((list.at(i*9 + j)->text()).toInt() != grid[i][j])
+            {
+                list.at(i*9 + j)->setText(QString::number(grid[i][j]));
+                list.at(i*9 + j)->setStyleSheet("background-color: white; color: black");
+            }
+        }
 }

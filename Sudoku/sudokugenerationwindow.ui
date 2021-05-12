@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>464</width>
-    <height>413</height>
+    <width>459</width>
+    <height>451</height>
    </rect>
   </property>
   <property name="cursor">
@@ -85,6 +85,7 @@
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -156,6 +157,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -221,6 +223,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -286,6 +289,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -351,6 +355,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -416,6 +421,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -481,6 +487,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -546,6 +553,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -611,6 +619,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -676,6 +685,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -741,6 +751,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -806,6 +817,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -871,6 +883,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -936,6 +949,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -1001,6 +1015,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -1066,6 +1081,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -1131,6 +1147,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -1196,6 +1213,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -1261,6 +1279,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -1326,6 +1345,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -1391,6 +1411,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -1456,6 +1477,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -1521,6 +1543,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -1586,6 +1609,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -1651,6 +1675,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -1716,6 +1741,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -1781,6 +1807,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -1846,6 +1873,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -1911,6 +1939,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -1976,6 +2005,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -2041,6 +2071,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -2106,6 +2137,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -2171,6 +2203,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -2236,6 +2269,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -2301,6 +2335,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -2366,6 +2401,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -2431,6 +2467,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -2496,6 +2533,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -2561,6 +2599,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -2626,6 +2665,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -2691,6 +2731,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -2756,6 +2797,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -2821,6 +2863,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -2886,6 +2929,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -2951,6 +2995,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -3016,6 +3061,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -3081,6 +3127,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -3146,6 +3193,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -3211,6 +3259,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -3276,6 +3325,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -3341,6 +3391,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -3406,6 +3457,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -3471,6 +3523,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -3536,6 +3589,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -3601,6 +3655,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -3666,6 +3721,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -3731,6 +3787,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -3796,6 +3853,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -3861,6 +3919,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -3926,6 +3985,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -3991,6 +4051,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -4056,6 +4117,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -4121,6 +4183,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -4186,6 +4249,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -4251,6 +4315,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -4316,6 +4381,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -4381,6 +4447,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -4446,6 +4513,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -4511,6 +4579,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -4576,6 +4645,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -4641,6 +4711,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -4706,6 +4777,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -4771,6 +4843,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -4836,6 +4909,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -4901,6 +4975,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -4966,6 +5041,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -5031,6 +5107,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -5096,6 +5173,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -5161,6 +5239,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -5226,6 +5305,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -5291,6 +5371,7 @@ QLineEdit:hover{
     <string notr="true">QLineEdit{
 	border-width: 1px;
 	border-color: black;
+	color: blue;
 }
 QLineEdit:hover{
 	border-width: 1px;
@@ -5318,7 +5399,7 @@ QLineEdit:hover{
    <property name="geometry">
     <rect>
      <x>330</x>
-     <y>270</y>
+     <y>320</y>
      <width>111</width>
      <height>41</height>
     </rect>
@@ -5357,7 +5438,7 @@ QLineEdit:hover{
    <property name="geometry">
     <rect>
      <x>330</x>
-     <y>350</y>
+     <y>400</y>
      <width>111</width>
      <height>41</height>
     </rect>
@@ -5387,6 +5468,32 @@ QLineEdit:hover{
    </property>
    <property name="text">
     <string>Clear</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_6">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>250</y>
+     <width>111</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Show solution</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_7">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>420</y>
+     <width>41</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Rules</string>
    </property>
   </widget>
  </widget>

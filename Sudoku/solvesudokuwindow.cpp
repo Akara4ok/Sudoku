@@ -43,5 +43,8 @@ void SolveSudokuWindow::on_pushButton_2_clicked()
 void SolveSudokuWindow::on_pushButton_5_clicked()
 {
     for (int i = 0; i < list.size(); i++)
+    {
+        list.at(i)->setReadOnly(false);
         list.at(i)->clear();
+    }
 }
