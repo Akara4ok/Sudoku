@@ -5,7 +5,10 @@
 #include <QTableView>
 #include <QTableWidget>
 #include <QStandardItemModel>
-
+#include <QInputDialog>
+#include <QFile>
+#include <QString>
+#include <qdir.h>
 
 namespace Ui {
 class TopResultsWindow;
@@ -19,14 +22,17 @@ signals:
     void mainWindow();
 
 public:
-    explicit TopResultsWindow(QWidget *parent = nullptr, QString s = "Top Results", int time = 0);
+    explicit TopResultsWindow(QWidget *parent = nullptr, QString s = "Top Results", int time = 0, QString difficulty="", int hints = 0);
     ~TopResultsWindow();
 
 private slots:
     void on_pushButton_2_clicked();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::TopResultsWindow *ui;
+    QStringList res;
 };
 
 #endif // TOPRESULTSWINDOW_H

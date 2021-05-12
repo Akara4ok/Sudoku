@@ -19,9 +19,12 @@ class SudokuGenerationWindow : public QDialog
     Q_OBJECT
 
 public:
-    explicit SudokuGenerationWindow(QWidget *parent = nullptr, QString difficulty = "");
+    explicit SudokuGenerationWindow(QWidget *parent = nullptr, QString difficulty1 = "");
     ~SudokuGenerationWindow();
     int getTime();
+    QString getDifficulty();
+    int getHints();
+
 
 signals:
     void mainWindow();
@@ -32,11 +35,8 @@ private slots:
     void on_pushButton_4_clicked();
     void on_pushButton_5_clicked();
     void on_pushButton_2_clicked();
-
     void on_pushButton_3_clicked();
-
     void on_pushButton_6_clicked();
-
     void on_pushButton_7_clicked();
 
 private:
@@ -46,6 +46,7 @@ private:
     int time;
     QTimer *timer;
     Sudoku sudoku;
+    int hints;
 
     //QLineEdit* lineEdit = new QLineEdit();
 };

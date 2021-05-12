@@ -71,7 +71,7 @@ void MainWindow::on_pushButton_4_clicked()
 
 void MainWindow::showR()
 {
-    topResults = new TopResultsWindow(nullptr, "Congratulations!!!!", sudokuGeneration->getTime());
+    topResults = new TopResultsWindow(nullptr, "Congratulations!!!!", sudokuGeneration->getTime(), sudokuGeneration->getDifficulty(), sudokuGeneration->getHints());
     connect(topResults, &TopResultsWindow::mainWindow, this, &MainWindow::closeR);
     topResults->show();
 }

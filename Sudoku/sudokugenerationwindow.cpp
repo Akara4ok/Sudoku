@@ -1,12 +1,12 @@
 #include "sudokugenerationwindow.h"
 #include "ui_sudokugenerationwindow.h"
 
-SudokuGenerationWindow::SudokuGenerationWindow(QWidget *parent, QString difficulty) :
+SudokuGenerationWindow::SudokuGenerationWindow(QWidget *parent, QString difficulty1) :
     QDialog(parent),
     ui(new Ui::SudokuGenerationWindow)
 {
     ui->setupUi(this);
-
+    difficulty = difficulty1;
     timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(onTimeout()));
     timer->start(1000);
@@ -29,6 +29,7 @@ SudokuGenerationWindow::SudokuGenerationWindow(QWidget *parent, QString difficul
     ui->label->setText("Sudoku("+difficulty+")");
 
     sudoku.generate(list, difficulty);
+    hints = 0;
 }
 
 SudokuGenerationWindow::~SudokuGenerationWindow()
@@ -61,8 +62,8 @@ void SudokuGenerationWindow::on_pushButton_2_clicked()
 {
     if (sudoku.equal(list))
     {
-        emit showResults();
         timer->stop();
+        emit showResults();
     }
     else
     {
@@ -79,7 +80,7 @@ int SudokuGenerationWindow::getTime()
 
 void SudokuGenerationWindow::on_pushButton_3_clicked()
 {
-    timer->stop();
+    hints++;
     int ind, value;
     sudoku.hint(list, ind, value);
     if (ind != -1)
@@ -92,7 +93,6 @@ void SudokuGenerationWindow::on_pushButton_3_clicked()
     c = ind% 9 + 1;
     QMessageBox::about(0, "Hint", "In (" + QString::number(r) + " row, " + QString::number(c) + " column) you sholud put: " + QString::number(value));
     }
-    timer->start(1000);
 }
 
 void SudokuGenerationWindow::on_pushButton_6_clicked()
@@ -100,7 +100,7 @@ void SudokuGenerationWindow::on_pushButton_6_clicked()
     timer->stop();
     sudoku.showSolutions(list);
     ui->pushButton->setEnabled(false);
-    ui->pushButton_2->setEnabled(false);
+    //ui->pushButton_2->setEnabled(false);
     ui->pushButton_3->setEnabled(false);
     ui->pushButton_5->setEnabled(false);
     ui->pushButton_6->setEnabled(false);
@@ -116,4 +116,13 @@ void SudokuGenerationWindow::on_pushButton_7_clicked()
     }
     else
         QMessageBox::about(0, "Rules", "Судоку – це головоломка з числами. Ігрове поле – це квадрат 9х9, який розділений на менші квадрати 3х3. На початку гри в деяких клітинках вже стоять числа(підсказки). Гравець повинен вписати числа в пусті клітинки, так щоб в кожному рядку, стовпчику та квадраті 3х3 кожна цифра зустрічалась тільки один раз.");
+}
+
+QString SudokuGenerationWindow::getDifficulty()
+{
+    return difficulty;
+}
+int SudokuGenerationWindow::getHints()
+{
+    return hints;
 }

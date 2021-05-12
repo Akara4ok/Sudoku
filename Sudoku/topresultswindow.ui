@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>452</width>
+    <width>538</width>
     <height>307</height>
    </rect>
   </property>
@@ -34,7 +34,7 @@
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>310</x>
+     <x>390</x>
      <y>210</y>
      <width>93</width>
      <height>28</height>
@@ -47,7 +47,7 @@
   <widget class="QPushButton" name="pushButton_2">
    <property name="geometry">
     <rect>
-     <x>310</x>
+     <x>390</x>
      <y>250</y>
      <width>93</width>
      <height>28</height>
@@ -65,7 +65,7 @@
     <rect>
      <x>10</x>
      <y>80</y>
-     <width>261</width>
+     <width>371</width>
      <height>192</height>
     </rect>
    </property>
@@ -99,6 +99,9 @@
    <property name="selectionBehavior">
     <enum>QAbstractItemView::SelectRows</enum>
    </property>
+   <property name="textElideMode">
+    <enum>Qt::ElideLeft</enum>
+   </property>
    <property name="showGrid">
     <bool>false</bool>
    </property>
@@ -112,25 +115,43 @@
     <bool>true</bool>
    </attribute>
    <attribute name="verticalHeaderVisible">
-    <bool>false</bool>
+    <bool>true</bool>
    </attribute>
    <attribute name="verticalHeaderDefaultSectionSize">
     <number>30</number>
    </attribute>
    <attribute name="verticalHeaderHighlightSections">
-    <bool>false</bool>
+    <bool>true</bool>
    </attribute>
    <attribute name="verticalHeaderShowSortIndicator" stdset="0">
     <bool>true</bool>
    </attribute>
   </widget>
-  <widget class="QWidget" name="layoutWidget">
+  <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>320</x>
-     <y>80</y>
-     <width>65</width>
-     <height>107</height>
+     <x>380</x>
+     <y>30</y>
+     <width>151</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>70</y>
+     <width>76</width>
+     <height>134</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -143,6 +164,16 @@
       </property>
       <property name="text">
        <string>Sort by</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QCheckBox" name="checkBox_4">
+      <property name="text">
+       <string>difficulty</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
       </property>
      </widget>
     </item>
@@ -171,24 +202,6 @@
      </widget>
     </item>
    </layout>
-  </widget>
-  <widget class="QLabel" name="label_3">
-   <property name="geometry">
-    <rect>
-     <x>300</x>
-     <y>30</y>
-     <width>151</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>12</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
   </widget>
  </widget>
  <resources/>
