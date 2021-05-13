@@ -30,11 +30,25 @@ private slots:
     void on_pushButton_2_clicked();
     void on_pushButton_clicked();
 
+    void on_radioButton_clicked();
+
+    void on_radioButton_2_clicked();
+
+    void on_radioButton_3_clicked();
+
+    void on_radioButton_4_clicked();
+
 private:
     Ui::TopResultsWindow *ui;
     QStringList res;
     QVector<Quartet> table;
+    QStandardItemModel* model;
+    bool difficultySort = false;
+    bool nameSort = false;
+    bool timeSort = true;
+    bool hintsSort = false;
     void sort();
+    void setTable();
 };
 
 #endif // TOPRESULTSWINDOW_H
