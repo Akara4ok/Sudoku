@@ -48,3 +48,20 @@ void SolveSudokuWindow::on_pushButton_5_clicked()
         list.at(i)->clear();
     }
 }
+
+void SolveSudokuWindow::on_pushButton_3_clicked()
+{
+    QString path = QInputDialog::getText( 0, "Save", "Enter path:", QLineEdit::Normal);
+    QFile saveFile(path);
+    saveFile.open(QIODevice::WriteOnly);
+    QString s = "";
+    for (int i = 0; i < 9; i++)
+    {
+        s = "";
+        for (int j = 0; j < 9; j++)
+            s = s + list.at(i*9 + j)->text() + " ";
+        s = s + "\n";
+        saveFile.write(s.toUtf8());
+    }
+    saveFile.close();
+}

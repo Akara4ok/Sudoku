@@ -9,6 +9,8 @@
 #include <QLCDNumber>
 #include <QMessageBox>
 #include "sudoku.h"
+#include <QFile>
+#include <qdir.h>
 
 namespace Ui {
 class SudokuGenerationWindow;
@@ -19,7 +21,7 @@ class SudokuGenerationWindow : public QDialog
     Q_OBJECT
 
 public:
-    explicit SudokuGenerationWindow(QWidget *parent = nullptr, QString difficulty1 = "");
+    explicit SudokuGenerationWindow(QWidget *parent = nullptr, QString difficulty1 = "", bool continueGame = false);
     ~SudokuGenerationWindow();
     int getTime();
     QString getDifficulty();
@@ -29,6 +31,7 @@ public:
 signals:
     void mainWindow();
     void showResults();
+    void saveGame();
 
 private slots:
     void onTimeout();
@@ -38,6 +41,7 @@ private slots:
     void on_pushButton_3_clicked();
     void on_pushButton_6_clicked();
     void on_pushButton_7_clicked();
+    void on_pushButton_clicked();
 
 private:
     Ui::SudokuGenerationWindow *ui;

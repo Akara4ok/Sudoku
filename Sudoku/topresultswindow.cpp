@@ -20,6 +20,11 @@ TopResultsWindow::TopResultsWindow(QWidget *parent, QString s, int time, QString
         name = QInputDialog::getText( 0, "Input", "Name:", QLineEdit::Normal);
     }
     QFile topRes(QDir::currentPath() + "\\topResults.txt");
+    if(!topRes.exists())
+    {
+        topRes.open(QIODevice::WriteOnly);
+        topRes.close();
+    }
     if ((topRes.exists())&&(topRes.open(QIODevice::ReadOnly)))
     {
         while(!topRes.atEnd())

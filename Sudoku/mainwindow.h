@@ -27,17 +27,19 @@ private slots:
 
     void on_pushButton_4_clicked();
 
+    void on_pushButton_2_clicked();
+
 private:
     Ui::MainWindow *ui;
     DifficultyWindow* difficulty;
     SudokuGenerationWindow* sudokuGeneration;
     SolveSudokuWindow* solveSudoku;
     TopResultsWindow* topResults;
-
     void easySudoku();
     void mediumSudoku();
     void expertSudoku();
     void showR();
     void closeR();
+    void enableButton();
 };
 #endif // MAINWINDOW_H

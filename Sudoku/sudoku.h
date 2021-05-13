@@ -29,11 +29,13 @@ class Sudoku
 public:
     Sudoku();
     Sudoku(QList<QLineEdit*>);
+    void setGrid(int**grid1);
     void solve(QList<QLineEdit*>&);
     void generate(QList<QLineEdit*>&, QString);
     bool equal(QList<QLineEdit*>);
     void hint(QList<QLineEdit*>, int&, int&);
     void showSolutions(QList<QLineEdit*>);
+    int** getGrid();
 
 };
 

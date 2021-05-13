@@ -19,6 +19,11 @@ Sudoku::Sudoku()
     }
 }
 
+void Sudoku::setGrid(int**grid1)
+{
+    grid = grid1;
+}
+
 Sudoku::Sudoku(QList<QLineEdit*> list)
 {
     rows = 729;
@@ -392,4 +397,9 @@ void Sudoku::showSolutions(QList<QLineEdit*>list)
                 list.at(i*9 + j)->setStyleSheet("background-color: white; color: black");
             }
         }
+}
+
+int** Sudoku::getGrid()
+{
+    return grid;
 }

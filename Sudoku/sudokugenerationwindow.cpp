@@ -1,16 +1,11 @@
 #include "sudokugenerationwindow.h"
 #include "ui_sudokugenerationwindow.h"
 
-SudokuGenerationWindow::SudokuGenerationWindow(QWidget *parent, QString difficulty1) :
+SudokuGenerationWindow::SudokuGenerationWindow(QWidget *parent, QString difficulty1, bool continueGame) :
     QDialog(parent),
     ui(new Ui::SudokuGenerationWindow)
 {
     ui->setupUi(this);
-    difficulty = difficulty1;
-    timer = new QTimer(this);
-    connect(timer, SIGNAL(timeout()), this, SLOT(onTimeout()));
-    timer->start(1000);
-    time = 0;
 
     list = {ui->lineEdit, ui->lineEdit_2, ui->lineEdit_3, ui->lineEdit_4, ui->lineEdit_5, ui->lineEdit_6, ui->lineEdit_7, ui->lineEdit_8, ui->lineEdit_9,
             ui->lineEdit_10, ui->lineEdit_11, ui->lineEdit_12, ui->lineEdit_13, ui->lineEdit_14, ui->lineEdit_15, ui->lineEdit_16, ui->lineEdit_17, ui->lineEdit_18,
@@ -24,12 +19,67 @@ SudokuGenerationWindow::SudokuGenerationWindow(QWidget *parent, QString difficul
 
     QRegularExpression rx("[1-9]");
     for (int i = 0; i < 81; i++)
-        list.at(i)->setValidator(new QRegularExpressionValidator(rx, this));
-
-    ui->label->setText("Sudoku("+difficulty+")");
-
-    sudoku.generate(list, difficulty);
-    hints = 0;
+        list.at(i)->setValidator(new QRegularExpressionValidator(rx, this));  
+    timer = new QTimer(this);
+    connect(timer, SIGNAL(timeout()), this, SLOT(onTimeout()));
+    if (!continueGame)
+    {
+        difficulty = difficulty1;
+        sudoku.generate(list, difficulty);
+        hints = 0;
+        ui->label->setText("Sudoku("+difficulty+")");
+        timer->start(1000);
+        time = 0;
+    }
+    else
+    {
+        QFile saveFile(QDir::currentPath() + "\\saves.txt");
+        if ((saveFile.exists())&&(saveFile.open(QIODevice::ReadOnly)))
+        {
+           QString s = "";
+           int**grid1 = new int*[9];
+           for (int i = 0; i < 9; i++)
+           {
+                grid1[i] = new int[9];
+                s = saveFile.readLine();
+                for (int j = 0; j < 9; j++)
+                    grid1[i][j] = s[j*2].digitValue();
+           }
+           while(!saveFile.atEnd())
+           {
+                s = saveFile.readLine();
+                if (s[0].isDigit())
+                {
+                    int last = 0;
+                    int next = s.indexOf(" ", last);
+                    int ind = s.mid(last, next - last).toInt();
+                    last = next + 1;
+                    next = s.indexOf(" ", last);
+                    list.at(ind)->setText(s.mid(last, next - last));
+                    QString st = s.mid(next, s.length() - next - 1);
+                    list.at(ind)->setStyleSheet(st);
+                    if ((st.indexOf("black")!= -1)||(st.indexOf("red")!= -1))
+                    {
+                        list.at(ind)->setReadOnly(true);
+                    }
+                }
+                else
+                {
+                    int last = 0;
+                    int next = s.indexOf(" ", last);
+                    difficulty = s.mid(last, next - last);
+                    last = next + 1;
+                    next = s.indexOf(" ", last);
+                    time = (s.mid(last, next - last)).toInt();
+                    hints = (s.mid(next, s.length() - next - 1)).toInt();
+                    ui->label->setText("Sudoku("+difficulty+")");
+                    ui->lcdNumber->display(time);
+                    timer->start(1000);
+                }
+           }
+           sudoku.setGrid(grid1);
+        }
+    }
 }
 
 SudokuGenerationWindow::~SudokuGenerationWindow()
@@ -125,4 +175,32 @@ QString SudokuGenerationWindow::getDifficulty()
 int SudokuGenerationWindow::getHints()
 {
     return hints;
+}
+
+void SudokuGenerationWindow::on_pushButton_clicked()
+{
+    int** grid1 = sudoku.getGrid();
+    QFile saveFile(QDir::currentPath() + "\\saves.txt");
+    saveFile.open(QIODevice::WriteOnly);
+    QString s = "";
+    for (int i = 0; i < 9; i++)
+    {
+        s = "";
+
+        for (int j = 0; j < 9; j++)
+            s = s + QString::number(grid1[i][j]) + " ";
+        s = s + "\n";
+        saveFile.write(s.toUtf8());
+    }
+    for (int  i = 0; i < 81; i++)
+    {
+        s = "";
+        if (list.at(i)->text()!="")
+            s = QString::number(i) + " " + list.at(i)->text() + " " + list.at(i)->styleSheet() + "\n";
+        saveFile.write(s.toUtf8());
+    }
+    s = difficulty + " " + QString::number(time) + " " + QString::number(hints) + "\n";
+    saveFile.write(s.toUtf8());
+    saveFile.close();
+    emit saveGame();
 }
