@@ -1,4 +1,4 @@
-#include "topresultswindow.h"
+﻿#include "topresultswindow.h"
 #include "ui_topresultswindow.h"
 
 TopResultsWindow::TopResultsWindow(QWidget *parent, QString s, int time, QString difficulty, int hints) :
@@ -52,9 +52,12 @@ TopResultsWindow::TopResultsWindow(QWidget *parent, QString s, int time, QString
     {
         int last = 0;
         int next = 0;
+        Quartet q;
         model->insertRow(i);
+        table.push_back(q);
         for (int j = 0; j < 4; j++)
         {
+
             QStandardItem *item= new QStandardItem();
             next = res[i].indexOf(",", last);
             if (next == -1)
@@ -65,7 +68,45 @@ TopResultsWindow::TopResultsWindow(QWidget *parent, QString s, int time, QString
             model->setItem(i, j, item);
             last = next + 1;
         }
-
+        QString s;
+        s = model->data(model->index(i,0)).toString();
+        if (QString::compare(s, "Easy") == 0)
+            table[i].difficulty = 0;
+        if (QString::compare(s, "Medium") == 0)
+            table[i].difficulty = 1;
+        if (QString::compare(s, "Expert") == 0)
+            table[i].difficulty = 2;
+        table[i].name = model->data(model->index(i,1)).toString();
+        table[i].time = model->data(model->index(i,2)).toInt();
+        table[i].hints = model->data(model->index(i,3)).toInt();
+    }
+    sort();
+    //ui->label_4->setText(QString::number(table[1].difficulty));
+    for (int i = 0; i < table.size(); i++)
+    {
+        QString s;
+        if(table[i].difficulty == 0)
+            s = "Easy";
+        if(table[i].difficulty == 1)
+            s = "Medium";
+        if(table[i].difficulty == 2)
+            s = "Expert";
+        QStandardItem *item= new QStandardItem();
+        item -> setText(s);
+        item->setTextAlignment(Qt::AlignCenter);
+        model->setItem(i, 0, item);
+        QStandardItem *item1= new QStandardItem();
+        item1 -> setText(table[i].name);
+        item1->setTextAlignment(Qt::AlignCenter);
+        model->setItem(i, 1, item1);
+        QStandardItem *item2= new QStandardItem();
+        item2 -> setText(QString::number(table[i].time));
+        item2->setTextAlignment(Qt::AlignCenter);
+        model->setItem(i, 2, item2);
+        QStandardItem *item3= new QStandardItem();
+        item3 -> setText(QString::number(table[i].hints));
+        item3->setTextAlignment(Qt::AlignCenter);
+        model->setItem(i, 3, item3);
     }
     ui->tableView->setModel(model);
 }
@@ -97,3 +138,17 @@ void TopResultsWindow::on_pushButton_clicked()
     model->setHeaderData(3, Qt::Horizontal, "Hints");
     ui->tableView->setModel(model);
 }
+
+void TopResultsWindow::sort()
+{
+    Quartet temp;
+    for (int i = 0; i < table.size(); i++)
+        for(int j = i + 1; j < table.size(); j++)
+            if (table[i].time > table[j].time)
+            {
+                temp = table[i];
+                table[i] = table[j];
+                table[j] = temp;
+            }
+}
+

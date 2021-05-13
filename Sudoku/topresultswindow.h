@@ -9,6 +9,7 @@
 #include <QFile>
 #include <QString>
 #include <qdir.h>
+#include "quartet.h"
 
 namespace Ui {
 class TopResultsWindow;
@@ -27,12 +28,13 @@ public:
 
 private slots:
     void on_pushButton_2_clicked();
-
     void on_pushButton_clicked();
 
 private:
     Ui::TopResultsWindow *ui;
     QStringList res;
+    QVector<Quartet> table;
+    void sort();
 };
 
 #endif // TOPRESULTSWINDOW_H

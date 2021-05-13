@@ -20,6 +20,7 @@ SOURCES += \
 
 HEADERS += \
     Node.h \
+    Quartet.h \
     difficultywindow.h \
     dlx.h \
     mainwindow.h \
