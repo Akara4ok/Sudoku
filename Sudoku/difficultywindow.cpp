@@ -19,18 +19,21 @@ void DifficultyWindow::on_easyButton_clicked()
 {
     this->close();
     emit easy();
+    delete this;
 }
 
 void DifficultyWindow::on_mediumButton_clicked()
 {
     this->close();
     emit medium();
+    delete this;
 }
 
 void DifficultyWindow::on_expertButton_clicked()
 {
     this->close();
     emit expert();
+    delete this;
 }
 
 
@@ -38,6 +41,7 @@ void DifficultyWindow::on_backButton_clicked()
 {
     this->close();
     emit mainWindow();
+    delete this;
 }
 
 

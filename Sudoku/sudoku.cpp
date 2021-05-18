@@ -45,7 +45,7 @@ Sudoku::Sudoku(QVector<QLineEdit*> cells)
     }
     fillExtraMatrix();
     for (int i = 0; i < rows; i++)
-        matrix.push(extraMatrix[i], i, columns);
+        matrix->push(extraMatrix[i], i, columns);
 
     fillStack(grid, matrix);
 }
@@ -73,7 +73,7 @@ void Sudoku::fillExtraMatrix()
             extraMatrix[i][243 + ((i / 81) / 3) * 27 + (((i / 9) % 9) / 3) * 9 + i % 9] = 1;
 }
 
-void Sudoku::fillStack(int**grid, DLX& matrix)
+void Sudoku::fillStack(int**grid, DLX* matrix)
 {
     int r;
     for (int i = 0; i < 9; i++)
@@ -85,13 +85,13 @@ void Sudoku::fillStack(int**grid, DLX& matrix)
                 r = i * 81 + j * 9 + grid[i][j] - 1;
                 stack.push_back(r);
 
-                Node* currentRow = matrix.getNode(r);
-                matrix.cover(matrix.getColumn(currentRow));
+                Node* currentRow = matrix->getNode(r);
+                matrix->cover(matrix->getColumn(currentRow));
 
                 Node* currentColumn = currentRow->right;
                 while (currentColumn != currentRow)
                 {
-                    matrix.cover(matrix.getColumn(currentColumn));
+                    matrix->cover(matrix->getColumn(currentColumn));
                     currentColumn = currentColumn->right;
                 }
 
@@ -101,12 +101,12 @@ void Sudoku::fillStack(int**grid, DLX& matrix)
 
 bool Sudoku::algorithmX()
 {
-    if (matrix.head->right == matrix.head)
+    if (matrix->head->right == matrix->head)
     {
         return true;
     }
-    Node* node = matrix.findMin();
-    matrix.cover(node);
+    Node* node = matrix->findMin();
+    matrix->cover(node);
     Node* currentRow = node->down;
     while (currentRow != node)
     {
@@ -114,7 +114,7 @@ bool Sudoku::algorithmX()
         Node* currentColumn = currentRow->right;
         while (currentColumn != currentRow)
         {
-            matrix.cover(matrix.getColumn(currentColumn));
+            matrix->cover(matrix->getColumn(currentColumn));
             currentColumn = currentColumn->right;
         }
         if (!algorithmX())
@@ -123,28 +123,37 @@ bool Sudoku::algorithmX()
             currentColumn = currentRow->left;
             while (currentColumn != currentRow)
             {
-                matrix.uncover(matrix.getColumn(currentColumn));
+                matrix->uncover(matrix->getColumn(currentColumn));
                 currentColumn = currentColumn->left;
             }
             currentRow = currentRow->down;
         }
         else
+        {
+            currentColumn = currentRow->left;
+            while (currentColumn != currentRow)
+            {
+                matrix->uncover(matrix->getColumn(currentColumn));
+                currentColumn = currentColumn->left;
+            }
+            currentRow = currentRow->down;
             return true;
+        }
 
     }
-    matrix.uncover(node);
+    matrix->uncover(node);
     return false;
 }
 
-void Sudoku::algorithmX(DLX& matrix, int&count)
+void Sudoku::algorithmX(DLX* matrix, int&count)
 {
-    if (matrix.head->right == matrix.head)
+    if (matrix->head->right == matrix->head)
     {
         count++;
         return;
     }
-    Node* node = matrix.findMin();
-    matrix.cover(node);
+    Node* node = matrix->findMin();
+    matrix->cover(node);
     Node* currentRow = node->down;
     while (currentRow != node)
     {
@@ -152,7 +161,7 @@ void Sudoku::algorithmX(DLX& matrix, int&count)
         Node* currentColumn = currentRow->right;
         while (currentColumn != currentRow)
         {
-            matrix.cover(matrix.getColumn(currentColumn));
+            matrix->cover(matrix->getColumn(currentColumn));
             currentColumn = currentColumn->right;
         }
         algorithmX(matrix, count);
@@ -160,12 +169,12 @@ void Sudoku::algorithmX(DLX& matrix, int&count)
         currentColumn = currentRow->left;
         while (currentColumn != currentRow)
         {
-            matrix.uncover(matrix.getColumn(currentColumn));
+            matrix->uncover(matrix->getColumn(currentColumn));
             currentColumn = currentColumn->left;
         }
         currentRow = currentRow->down;
     }
-    matrix.uncover(node);
+    matrix->uncover(node);
 }
 
 void Sudoku::solve(QVector<QLineEdit*>&cells)
@@ -276,7 +285,7 @@ void Sudoku::randSudoku()
     }
     fillExtraMatrix();
     for (int i = 0; i < rows; i++)
-        matrix.push(extraMatrix[i], i, columns);
+        matrix->push(extraMatrix[i], i, columns);
     fillStack(grid, matrix);
     if (algorithmX())
     {
@@ -304,6 +313,9 @@ int** Sudoku::deleteCells(int total)
     QVector<int> indexes;
     for (int i = 0; i < 81; i++)
         indexes.push_back(i);
+    DLX* matrix1 = new DLX();
+    for (int i = 0; i < rows; i++)
+        matrix1->push(extraMatrix[i], i, columns);
     while (zeroCells < total)
     {
         if (!indexes.empty())
@@ -313,9 +325,7 @@ int** Sudoku::deleteCells(int total)
             i = k / 9;
             j = k % 9;
             stack.clear();
-            DLX matrix;
-            for (int i = 0; i < rows; i++)
-                matrix.push(extraMatrix[i], i, columns);
+            DLX* matrix = new DLX(matrix1);
             int temp = result[i][j];
             result[i][j] = 0;
             fillStack(result, matrix);
@@ -331,10 +341,12 @@ int** Sudoku::deleteCells(int total)
                 result[i][j] = temp;
             }
             indexes.erase(indexes.begin() + indexes.indexOf(k));
+            delete matrix;
         }
         else
             break;
     }
+    delete matrix1;
     return result;
 }
 
@@ -402,4 +414,17 @@ void Sudoku::showSolutions(QVector<QLineEdit*>cells)
 int** Sudoku::getGrid()
 {
     return grid;
+}
+
+Sudoku::~Sudoku()
+{
+    for (int i = 0; i < 9; i++)
+        delete grid[i];
+    delete grid;
+
+    for (int i = 0; i < 729; i++)
+        delete extraMatrix[i];
+    delete extraMatrix;
+
+    delete matrix;
 }

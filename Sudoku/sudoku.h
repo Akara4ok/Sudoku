@@ -12,12 +12,12 @@ class Sudoku
     int** grid;
     int** extraMatrix;
     int rows, columns;
-    DLX matrix;
+    DLX* matrix = new DLX();
     QVector<int> stack;
     void fillExtraMatrix();
-    void fillStack(int**, DLX&);
+    void fillStack(int**, DLX*);
     bool algorithmX();
-    void algorithmX(DLX&, int&);
+    void algorithmX(DLX*, int&);
     void swapRows(int, int);
     void swapColumns(int, int);
     void swapTripleRows(int, int);
@@ -29,6 +29,7 @@ class Sudoku
 public:
     Sudoku();
     Sudoku(QVector<QLineEdit*>);
+    ~Sudoku();
     void setGrid(int**grid1);
     void solve(QVector<QLineEdit*>&);
     void generate(QVector<QLineEdit*>&, QString);

@@ -31,7 +31,7 @@
     <string>Top Results</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="clearButton">
    <property name="geometry">
     <rect>
      <x>410</x>
@@ -44,7 +44,7 @@
     <string>Clear</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="quitButton">
    <property name="geometry">
     <rect>
      <x>410</x>
@@ -125,7 +125,7 @@
     <bool>false</bool>
    </attribute>
    <attribute name="verticalHeaderVisible">
-    <bool>true</bool>
+    <bool>false</bool>
    </attribute>
    <attribute name="verticalHeaderDefaultSectionSize">
     <number>30</number>
@@ -155,7 +155,7 @@
     <string/>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>420</x>
@@ -178,21 +178,21 @@
      </widget>
     </item>
     <item>
-     <widget class="QRadioButton" name="radioButton">
+     <widget class="QRadioButton" name="difficultyRadioButton">
       <property name="text">
        <string>difficulty</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QRadioButton" name="radioButton_2">
+     <widget class="QRadioButton" name="nameRadioButton">
       <property name="text">
        <string>name</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QRadioButton" name="radioButton_3">
+     <widget class="QRadioButton" name="timeRadioButton">
       <property name="text">
        <string>time</string>
       </property>
@@ -202,7 +202,7 @@
      </widget>
     </item>
     <item>
-     <widget class="QRadioButton" name="radioButton_4">
+     <widget class="QRadioButton" name="hintsRadioButton">
       <property name="text">
        <string>hints</string>
       </property>

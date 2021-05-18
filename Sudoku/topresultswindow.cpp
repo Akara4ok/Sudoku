@@ -88,16 +88,17 @@ TopResultsWindow::TopResultsWindow(QWidget *parent, QString s, int time, QString
 TopResultsWindow::~TopResultsWindow()
 {
     delete ui;
+    delete model;
 }
 
-void TopResultsWindow::on_pushButton_2_clicked()
+void TopResultsWindow::on_quitButton_clicked()
 {
     this->close();
     emit mainWindow();
     delete this;
 }
 
-void TopResultsWindow::on_pushButton_clicked()
+void TopResultsWindow::on_clearButton_clicked()
 {
     QFile topRes(QDir::currentPath() + "\\topResults.txt");
     if ((topRes.exists())&&(topRes.open(QIODevice::WriteOnly)))
@@ -193,7 +194,7 @@ void TopResultsWindow::setTable()
     ui->tableView->setModel(model);
 }
 
-void TopResultsWindow::on_radioButton_clicked()
+void TopResultsWindow::on_difficultyRadioButton_clicked()
 {
     difficultySort = true;
     nameSort = false;
@@ -203,7 +204,7 @@ void TopResultsWindow::on_radioButton_clicked()
     setTable();
 }
 
-void TopResultsWindow::on_radioButton_2_clicked()
+void TopResultsWindow::on_nameRadioButton_clicked()
 {
     difficultySort = false;
     nameSort = true;
@@ -213,7 +214,7 @@ void TopResultsWindow::on_radioButton_2_clicked()
     setTable();
 }
 
-void TopResultsWindow::on_radioButton_3_clicked()
+void TopResultsWindow::on_timeRadioButton_clicked()
 {
     difficultySort = false;
     nameSort = false;
@@ -223,7 +224,7 @@ void TopResultsWindow::on_radioButton_3_clicked()
     setTable();
 }
 
-void TopResultsWindow::on_radioButton_4_clicked()
+void TopResultsWindow::on_hintsRadioButton_clicked()
 {
     difficultySort = false;
     nameSort = false;

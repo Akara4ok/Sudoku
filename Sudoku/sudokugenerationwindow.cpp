@@ -85,6 +85,7 @@ SudokuGenerationWindow::SudokuGenerationWindow(QWidget *parent, QString difficul
 SudokuGenerationWindow::~SudokuGenerationWindow()
 {
     delete ui;
+    delete timer;
 }
 
 void SudokuGenerationWindow::onTimeout()

@@ -10,7 +10,6 @@ struct Quartet
     int time;
     int hints;
     Quartet(){};
-
 };
 
 #endif // QUARTET_H

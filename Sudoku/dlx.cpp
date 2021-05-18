@@ -27,14 +27,15 @@ DLX::DLX()
     head->left = current;
 }
 
-DLX::DLX(DLX&DLX1)
+DLX::DLX(DLX*&DLX1)
 {
-    head = new Node(DLX1.head);
-    Node* current1 = DLX1.head->right;
+    head = new Node(DLX1->head);
+    Node* current1 = DLX1->head->right;
     Node* current = new Node(current1);
     head->right = current;
     current->left = head;
-    while (current1 != DLX1.head)
+    Node* headCol = current;
+    while (current1 != DLX1->head)
     {
         current1 = current1->down;
         while (current1->rowID != -1)
@@ -45,12 +46,61 @@ DLX::DLX(DLX&DLX1)
             current = node;
             current1 = current1->down;
         }
+        current->down = headCol;
+        headCol->up = current;
+        current = headCol;
         current1 = current1->right;
-        Node* node = new Node(current1);
-        current->right = node;
-        node->left = current;
-        current = node;
+        if (current1 != DLX1->head)
+        {
+            Node* node = new Node(current1);
+            current->right = node;
+            node->left = current;
+            current = node;
+        }
+        else
+        {
+            current->right = head;
+            head->left = current;
+        }
+        headCol = current;
      }
+
+    current1 = DLX1->head->right;
+    current = head->right;
+    while (current1 != DLX1->head)
+    {
+        current1 = current1->down;
+        current = current->down;
+        while (current1->rowID != -1)
+        {
+            Node* node = goToNode(current1->right->rowID, current1->right->colID);
+            current->right = node;
+            node->left = current;
+            current = current->down;
+            current1 = current1->down;
+        }
+        current = current->right;
+        current1 = current1->right;
+     }
+}
+
+DLX::~DLX()
+{
+    Node* current = head->right;
+    while (current != head)
+    {
+        current = current->down;
+        while (current->rowID != -1)
+        {
+            Node* node = current->down;
+            delete current;
+            current = node;
+        }
+        Node* node = current->right;
+        delete current;
+        current = node;
+    }
+    delete head;
 }
 
 void DLX::push(int* row, int r, int n)
@@ -207,6 +257,20 @@ Node* DLX::getNode(int r)
         current = current->right;
     }
     while (current->rowID < r)
+    {
+        current = current->down;
+    }
+    return current;
+}
+
+Node* DLX::goToNode(int i, int j)
+{
+    Node* current = head;
+    while (current->colID != j)
+    {
+        current = current->right;
+    }
+    while (current->rowID != i)
     {
         current = current->down;
     }

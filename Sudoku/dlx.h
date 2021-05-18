@@ -5,9 +5,12 @@
 
 class DLX
 {
+private:
+    Node* goToNode(int, int);
 public:
     DLX();
-    DLX(DLX&);
+    DLX(DLX*&);
+    ~DLX();
     Node* head;
     //DLX(int n);
     void push(int*, int, int);
