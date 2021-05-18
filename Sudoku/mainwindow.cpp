@@ -8,9 +8,9 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     QFile saveFile(QDir::currentPath() + "\\saves.txt");
     if(!saveFile.exists())
-        ui->pushButton_2->setEnabled(false);
+        ui->continueButton->setEnabled(false);
     else
-        ui->pushButton_2->setEnabled(true);
+        ui->continueButton->setEnabled(true);
 }
 
 MainWindow::~MainWindow()
@@ -24,7 +24,7 @@ void MainWindow::easySudoku()
     if(saveFile.exists())
     {
         saveFile.remove();
-        ui->pushButton_2->setEnabled(false);
+        ui->continueButton->setEnabled(false);
     }
     sudokuGeneration = new SudokuGenerationWindow(nullptr, "Easy");
     sudokuGeneration->show();
@@ -39,7 +39,7 @@ void MainWindow::mediumSudoku()
     if(saveFile.exists())
     {
         saveFile.remove();
-        ui->pushButton_2->setEnabled(false);
+        ui->continueButton->setEnabled(false);
     }
     sudokuGeneration = new SudokuGenerationWindow(nullptr, "Medium");
     sudokuGeneration->show();
@@ -54,7 +54,7 @@ void MainWindow::expertSudoku()
     if(saveFile.exists())
     {
         saveFile.remove();
-        ui->pushButton_2->setEnabled(false);
+        ui->continueButton->setEnabled(false);
     }
     sudokuGeneration = new SudokuGenerationWindow(nullptr, "Expert");
     sudokuGeneration->show();
@@ -63,7 +63,7 @@ void MainWindow::expertSudoku()
     connect(sudokuGeneration, &SudokuGenerationWindow::saveGame, this, &MainWindow::enableButton);
 }
 
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_newGameButton_clicked()
 {
     difficulty = new DifficultyWindow();
     connect(difficulty, &DifficultyWindow::mainWindow, this, &MainWindow::show);
@@ -74,12 +74,12 @@ void MainWindow::on_pushButton_clicked()
     difficulty->show();
 }
 
-void MainWindow::on_pushButton_5_clicked()
+void MainWindow::on_quitButton_clicked()
 {
     this->close();
 }
 
-void MainWindow::on_pushButton_3_clicked()
+void MainWindow::on_solveButton_clicked()
 {
     solveSudoku = new SolveSudokuWindow();
     this->close();
@@ -87,7 +87,7 @@ void MainWindow::on_pushButton_3_clicked()
     solveSudoku->show();
 }
 
-void MainWindow::on_pushButton_4_clicked()
+void MainWindow::on_topResultsButton_clicked()
 {
     topResults = new TopResultsWindow();
     this->close();
@@ -101,7 +101,7 @@ void MainWindow::showR()
     if(saveFile.exists())
     {
         saveFile.remove();
-        ui->pushButton_2->setEnabled(false);
+        ui->continueButton->setEnabled(false);
     }
     topResults = new TopResultsWindow(nullptr, "Congratulations!!!!", sudokuGeneration->getTime(), sudokuGeneration->getDifficulty(), sudokuGeneration->getHints());
     connect(topResults, &TopResultsWindow::mainWindow, this, &MainWindow::closeR);
@@ -117,10 +117,10 @@ void MainWindow::closeR()
 
 void MainWindow::enableButton()
 {
-    ui->pushButton_2->setEnabled(true);
+    ui->continueButton->setEnabled(true);
 }
 
-void MainWindow::on_pushButton_2_clicked()
+void MainWindow::on_continueButton_clicked()
 {
     this->close();
     sudokuGeneration = new SudokuGenerationWindow(nullptr, "", true);

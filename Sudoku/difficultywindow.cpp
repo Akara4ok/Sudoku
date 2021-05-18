@@ -15,26 +15,26 @@ DifficultyWindow::~DifficultyWindow()
 }
 
 
-void DifficultyWindow::on_pushButton_clicked()
+void DifficultyWindow::on_easyButton_clicked()
 {
     this->close();
     emit easy();
 }
 
-void DifficultyWindow::on_pushButton_2_clicked()
+void DifficultyWindow::on_mediumButton_clicked()
 {
     this->close();
     emit medium();
 }
 
-void DifficultyWindow::on_pushButton_3_clicked()
+void DifficultyWindow::on_expertButton_clicked()
 {
     this->close();
     emit expert();
 }
 
 
-void DifficultyWindow::on_pushButton_4_clicked()
+void DifficultyWindow::on_backButton_clicked()
 {
     this->close();
     emit mainWindow();

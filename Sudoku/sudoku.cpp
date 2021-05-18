@@ -24,7 +24,7 @@ void Sudoku::setGrid(int**grid1)
     grid = grid1;
 }
 
-Sudoku::Sudoku(QList<QLineEdit*> list)
+Sudoku::Sudoku(QVector<QLineEdit*> cells)
 {
     rows = 729;
     columns = 324;
@@ -36,8 +36,8 @@ Sudoku::Sudoku(QList<QLineEdit*> list)
             grid[i][j] = 0;
     }
 
-    for (int i = 0; i < list.size(); i++)
-        grid[i / 9][i % 9] = (list.at(i)->text()).toInt();
+    for (int i = 0; i < cells.size(); i++)
+        grid[i / 9][i % 9] = (cells[i]->text()).toInt();
     extraMatrix = new int* [rows];
     for (int i = 0; i < rows; i++)
     {
@@ -168,7 +168,7 @@ void Sudoku::algorithmX(DLX& matrix, int&count)
     matrix.uncover(node);
 }
 
-void Sudoku::solve(QList<QLineEdit*>&list)
+void Sudoku::solve(QVector<QLineEdit*>&cells)
 {
     if (algorithmX())
     {
@@ -178,8 +178,8 @@ void Sudoku::solve(QList<QLineEdit*>&list)
         }
         for (int i = 0; i < 81; i++)
         {
-            list.at(i)->setText(QString::number(grid[i / 9][i % 9]));
-            list.at(i)->setReadOnly(true);
+            cells[i]->setText(QString::number(grid[i / 9][i % 9]));
+            cells[i]->setReadOnly(true);
         }
      }
 }
@@ -338,7 +338,7 @@ int** Sudoku::deleteCells(int total)
     return result;
 }
 
-void Sudoku::generate(QList<QLineEdit*>&list, QString difficulty)
+void Sudoku::generate(QVector<QLineEdit*>&cells, QString difficulty)
 {
     randSudoku();
     int**randomSudoku;
@@ -353,28 +353,28 @@ void Sudoku::generate(QList<QLineEdit*>&list, QString difficulty)
         for (int j = 0; j < 9; j++)
             if (randomSudoku[i][j]!=0)
             {
-                list.at(i*9 + j)->setText(QString::number(randomSudoku[i][j]));
-                list.at(i*9 + j)->setReadOnly(true);
-                list.at(i*9 + j)->setStyleSheet("color: black");
+                cells[i*9 + j]->setText(QString::number(randomSudoku[i][j]));
+                cells[i*9 + j]->setReadOnly(true);
+                cells[i*9 + j]->setStyleSheet("color: black");
             }
 }
 
-bool Sudoku::equal(QList<QLineEdit*>list)
+bool Sudoku::equal(QVector<QLineEdit*>cells)
 {
     bool result = true;
     for (int i = 0; i < 9; i++)
         for(int j = 0; j < 9; j++)
-            if ((list.at(i*9 + j)->text()).toInt() != grid[i][j])
+            if ((cells[i*9 + j]->text()).toInt() != grid[i][j])
                 result = false;
     return result;
 }
 
-void Sudoku::hint(QList<QLineEdit*>list, int&ind, int&value)
+void Sudoku::hint(QVector<QLineEdit*>cells, int&ind, int&value)
 {
     QList<int> avail;
     for (int i = 0; i < 9; i++)
         for(int j = 0; j < 9; j++)
-            if ((list.at(i*9 + j)->text()).toInt() != grid[i][j])
+            if ((cells[i*9 + j]->text()).toInt() != grid[i][j])
                 avail.push_back(i*9 + j);
     ind = -1;
     if (!avail.empty())
@@ -385,16 +385,16 @@ void Sudoku::hint(QList<QLineEdit*>list, int&ind, int&value)
     }
 }
 
-void Sudoku::showSolutions(QList<QLineEdit*>list)
+void Sudoku::showSolutions(QVector<QLineEdit*>cells)
 {
     for (int i = 0; i < 9; i++)
         for(int j = 0; j < 9; j++)
         {
-            list.at(i*9 + j)->setReadOnly(true);
-            if ((list.at(i*9 + j)->text()).toInt() != grid[i][j])
+            cells[i*9 + j]->setReadOnly(true);
+            if ((cells.at(i*9 + j)->text()).toInt() != grid[i][j])
             {
-                list.at(i*9 + j)->setText(QString::number(grid[i][j]));
-                list.at(i*9 + j)->setStyleSheet("background-color: white; color: black");
+                cells[i*9 + j]->setText(QString::number(grid[i][j]));
+                cells[i*9 + j]->setStyleSheet("background-color: white; color: black");
             }
         }
 }

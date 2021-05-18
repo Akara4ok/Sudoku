@@ -20,14 +20,11 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_pushButton_clicked();
-    void on_pushButton_5_clicked();
-
-    void on_pushButton_3_clicked();
-
-    void on_pushButton_4_clicked();
-
-    void on_pushButton_2_clicked();
+    void on_newGameButton_clicked();
+    void on_quitButton_clicked();
+    void on_solveButton_clicked();
+    void on_topResultsButton_clicked();
+    void on_continueButton_clicked();
 
 private:
     Ui::MainWindow *ui;

@@ -27,6 +27,32 @@ DLX::DLX()
     head->left = current;
 }
 
+DLX::DLX(DLX&DLX1)
+{
+    head = new Node(DLX1.head);
+    Node* current1 = DLX1.head->right;
+    Node* current = new Node(current1);
+    head->right = current;
+    current->left = head;
+    while (current1 != DLX1.head)
+    {
+        current1 = current1->down;
+        while (current1->rowID != -1)
+        {
+            Node* node = new Node(current1);
+            current->down = node;
+            node->up = current;
+            current = node;
+            current1 = current1->down;
+        }
+        current1 = current1->right;
+        Node* node = new Node(current1);
+        current->right = node;
+        node->left = current;
+        current = node;
+     }
+}
+
 void DLX::push(int* row, int r, int n)
 {
     Node* current = head;

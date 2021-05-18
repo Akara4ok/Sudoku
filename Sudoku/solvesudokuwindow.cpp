@@ -7,7 +7,7 @@ SolveSudokuWindow::SolveSudokuWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    list = {ui->lineEdit, ui->lineEdit_2, ui->lineEdit_3, ui->lineEdit_4, ui->lineEdit_5, ui->lineEdit_6, ui->lineEdit_7, ui->lineEdit_8, ui->lineEdit_9,
+    cells = {ui->lineEdit, ui->lineEdit_2, ui->lineEdit_3, ui->lineEdit_4, ui->lineEdit_5, ui->lineEdit_6, ui->lineEdit_7, ui->lineEdit_8, ui->lineEdit_9,
             ui->lineEdit_10, ui->lineEdit_11, ui->lineEdit_12, ui->lineEdit_13, ui->lineEdit_14, ui->lineEdit_15, ui->lineEdit_16, ui->lineEdit_17, ui->lineEdit_18,
             ui->lineEdit_19, ui->lineEdit_20, ui->lineEdit_21, ui->lineEdit_22, ui->lineEdit_23, ui->lineEdit_24, ui->lineEdit_25, ui->lineEdit_26, ui->lineEdit_27,
             ui->lineEdit_28, ui->lineEdit_29, ui->lineEdit_30, ui->lineEdit_31, ui->lineEdit_32, ui->lineEdit_33, ui->lineEdit_34, ui->lineEdit_35, ui->lineEdit_36,
@@ -19,7 +19,7 @@ SolveSudokuWindow::SolveSudokuWindow(QWidget *parent) :
 
     QRegularExpression rx("[1-9]");
     for (int i = 0; i < 81; i++)
-        list.at(i)->setValidator(new QRegularExpressionValidator(rx, this));
+        cells[i]->setValidator(new QRegularExpressionValidator(rx, this));
 }
 
 SolveSudokuWindow::~SolveSudokuWindow()
@@ -27,29 +27,29 @@ SolveSudokuWindow::~SolveSudokuWindow()
     delete ui;
 }
 
-void SolveSudokuWindow::on_pushButton_4_clicked()
+void SolveSudokuWindow::on_quitButton_clicked()
 {
     this->close();
     emit mainWindow();
     delete this;
 }
 
-void SolveSudokuWindow::on_pushButton_2_clicked()
+void SolveSudokuWindow::on_solveButton_clicked()
 {
-    Sudoku sudoku(list);
-    sudoku.solve(list);
+    Sudoku sudoku(cells);
+    sudoku.solve(cells);
 }
 
-void SolveSudokuWindow::on_pushButton_5_clicked()
+void SolveSudokuWindow::on_clearButton_clicked()
 {
-    for (int i = 0; i < list.size(); i++)
+    for (int i = 0; i < cells.size(); i++)
     {
-        list.at(i)->setReadOnly(false);
-        list.at(i)->clear();
+        cells[i]->setReadOnly(false);
+        cells[i]->clear();
     }
 }
 
-void SolveSudokuWindow::on_pushButton_3_clicked()
+void SolveSudokuWindow::on_saveButton_clicked()
 {
     QString path = QInputDialog::getText( 0, "Save", "Enter path:", QLineEdit::Normal);
     QFile saveFile(path);
@@ -59,7 +59,7 @@ void SolveSudokuWindow::on_pushButton_3_clicked()
     {
         s = "";
         for (int j = 0; j < 9; j++)
-            s = s + list.at(i*9 + j)->text() + " ";
+            s = s + cells[i*9 + j]->text() + " ";
         s = s + "\n";
         saveFile.write(s.toUtf8());
     }

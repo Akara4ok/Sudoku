@@ -25,17 +25,14 @@ signals:
     void mainWindow();
 
 private slots:
-    void on_pushButton_4_clicked();
-
-    void on_pushButton_2_clicked();
-
-    void on_pushButton_5_clicked();
-
-    void on_pushButton_3_clicked();
+    void on_quitButton_clicked();
+    void on_solveButton_clicked();
+    void on_clearButton_clicked();
+    void on_saveButton_clicked();
 
 private:
     Ui::SolveSudokuWindow *ui;
-    QList<QLineEdit*> list;
+    QVector<QLineEdit*> cells;
 };
 
 #endif // SOLVESUDOKUWINDOW_H

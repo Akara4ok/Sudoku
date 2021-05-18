@@ -4666,7 +4666,7 @@
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="saveButton">
    <property name="geometry">
     <rect>
      <x>330</x>
@@ -4679,7 +4679,7 @@
     <string>Save</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="checkButton">
    <property name="geometry">
     <rect>
      <x>330</x>
@@ -4692,7 +4692,7 @@
     <string>Check</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_3">
+  <widget class="QPushButton" name="hintButton">
    <property name="geometry">
     <rect>
      <x>330</x>
@@ -4705,7 +4705,7 @@
     <string>Hint</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_4">
+  <widget class="QPushButton" name="quitButton">
    <property name="geometry">
     <rect>
      <x>330</x>
@@ -4728,7 +4728,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_5">
+  <widget class="QPushButton" name="clearButton">
    <property name="geometry">
     <rect>
      <x>330</x>
@@ -4741,7 +4741,7 @@
     <string>Clear</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_6">
+  <widget class="QPushButton" name="showSolutionButton">
    <property name="geometry">
     <rect>
      <x>330</x>
@@ -4754,7 +4754,7 @@
     <string>Show solution</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_7">
+  <widget class="QPushButton" name="rulesButton">
    <property name="geometry">
     <rect>
      <x>20</x>

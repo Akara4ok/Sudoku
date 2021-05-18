@@ -35,17 +35,17 @@ signals:
 
 private slots:
     void onTimeout();
-    void on_pushButton_4_clicked();
-    void on_pushButton_5_clicked();
-    void on_pushButton_2_clicked();
-    void on_pushButton_3_clicked();
-    void on_pushButton_6_clicked();
-    void on_pushButton_7_clicked();
-    void on_pushButton_clicked();
+    void on_quitButton_clicked();
+    void on_clearButton_clicked();
+    void on_checkButton_clicked();
+    void on_hintButton_clicked();
+    void on_showSolutionButton_clicked();
+    void on_rulesButton_clicked();
+    void on_saveButton_clicked();
 
 private:
     Ui::SudokuGenerationWindow *ui;
-    QList<QLineEdit*> list;
+    QVector<QLineEdit*> cells;
     QString difficulty;
     int time;
     QTimer *timer;

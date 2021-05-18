@@ -11,6 +11,7 @@ struct Node
     Node* up;
     Node* down;
     Node() { left = nullptr; right = nullptr; up = nullptr; down = nullptr; rowID = -1; colID = -1; count = -1; };
+    Node(Node &node1) { left = nullptr; right = nullptr; up = nullptr; down = nullptr; rowID = node1.rowID; colID = node1.colID; count = node1.count; };
 };
 
 #endif // NODE_H

@@ -46,7 +46,7 @@
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="mediumButton">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -59,7 +59,7 @@
     <string>Medium</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="easyButton">
    <property name="enabled">
     <bool>true</bool>
    </property>
@@ -75,7 +75,7 @@
     <string>Easy</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_3">
+  <widget class="QPushButton" name="expertButton">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -88,7 +88,7 @@
     <string>Expert</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_4">
+  <widget class="QPushButton" name="backButton">
    <property name="geometry">
     <rect>
      <x>50</x>

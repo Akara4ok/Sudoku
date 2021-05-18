@@ -28,13 +28,13 @@ class Sudoku
     int** deleteCells(int);
 public:
     Sudoku();
-    Sudoku(QList<QLineEdit*>);
+    Sudoku(QVector<QLineEdit*>);
     void setGrid(int**grid1);
-    void solve(QList<QLineEdit*>&);
-    void generate(QList<QLineEdit*>&, QString);
-    bool equal(QList<QLineEdit*>);
-    void hint(QList<QLineEdit*>, int&, int&);
-    void showSolutions(QList<QLineEdit*>);
+    void solve(QVector<QLineEdit*>&);
+    void generate(QVector<QLineEdit*>&, QString);
+    bool equal(QVector<QLineEdit*>);
+    void hint(QVector<QLineEdit*>, int&, int&);
+    void showSolutions(QVector<QLineEdit*>);
     int** getGrid();
 
 };

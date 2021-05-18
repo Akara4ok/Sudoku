@@ -22,10 +22,10 @@ signals:
     void expert();
 
 private slots:
-    void on_pushButton_clicked();
-    void on_pushButton_4_clicked();
-    void on_pushButton_2_clicked();
-    void on_pushButton_3_clicked();
+    void on_easyButton_clicked();
+    void on_mediumButton_clicked();
+    void on_expertButton_clicked();
+    void on_backButton_clicked();
 
 private:
     Ui::DifficultyWindow *ui;

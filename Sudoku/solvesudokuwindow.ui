@@ -858,7 +858,7 @@ QLineEdit:hover{
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_4">
+  <widget class="QPushButton" name="quitButton">
    <property name="geometry">
     <rect>
      <x>330</x>
@@ -1716,7 +1716,7 @@ QLineEdit:hover{
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="solveButton">
    <property name="geometry">
     <rect>
      <x>330</x>
@@ -3112,7 +3112,7 @@ QLineEdit:hover{
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_3">
+  <widget class="QPushButton" name="saveButton">
    <property name="geometry">
     <rect>
      <x>330</x>
@@ -5338,7 +5338,7 @@ QLineEdit:hover{
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_5">
+  <widget class="QPushButton" name="clearButton">
    <property name="geometry">
     <rect>
      <x>330</x>

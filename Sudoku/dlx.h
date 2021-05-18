@@ -7,6 +7,7 @@ class DLX
 {
 public:
     DLX();
+    DLX(DLX&);
     Node* head;
     //DLX(int n);
     void push(int*, int, int);
