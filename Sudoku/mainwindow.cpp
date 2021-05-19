@@ -103,7 +103,7 @@ void MainWindow::showR()
         saveFile.remove();
         ui->continueButton->setEnabled(false);
     }
-    topResults = new TopResultsWindow(nullptr, "Congratulations!!!!", sudokuGeneration->getTime(), sudokuGeneration->getDifficulty(), sudokuGeneration->getHints());
+    topResults = new TopResultsWindow(nullptr, "Congratulations!!!!", sudokuGeneration->getTime(), sudokuGeneration->getDifficulty(),sudokuGeneration->getMistakes(), sudokuGeneration->getHints());
     connect(topResults, &TopResultsWindow::mainWindow, this, &MainWindow::closeR);
     topResults->show();
 }

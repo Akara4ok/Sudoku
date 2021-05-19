@@ -7,7 +7,7 @@
 #include "sudoku.h"
 #include <QRegularExpressionValidator>
 #include <QFile>
-#include <QInputDialog>
+#include <QFileDialog>
 #include <QMessageBox>
 
 namespace Ui {

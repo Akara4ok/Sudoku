@@ -20,13 +20,13 @@ SOURCES += \
 
 HEADERS += \
     Node.h \
-    Quartet.h \
     difficultywindow.h \
     dlx.h \
     mainwindow.h \
     solvesudokuwindow.h \
     sudoku.h \
     sudokugenerationwindow.h \
+    topRLine.h \
     topresultswindow.h
 
 FORMS += \

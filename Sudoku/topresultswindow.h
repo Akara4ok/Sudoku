@@ -9,7 +9,8 @@
 #include <QFile>
 #include <QString>
 #include <qdir.h>
-#include "quartet.h"
+#include <QMessageBox>
+#include "topRLine.h"
 
 namespace Ui {
 class TopResultsWindow;
@@ -23,7 +24,7 @@ signals:
     void mainWindow();
 
 public:
-    explicit TopResultsWindow(QWidget *parent = nullptr, QString s = "Top Results", int time = 0, QString difficulty="", int hints = 0);
+    explicit TopResultsWindow(QWidget *parent = nullptr, QString s = "Top Results", int time = 0, QString difficulty="", int mistakes = 0, int hints = 0);
     ~TopResultsWindow();
 
 private slots:
@@ -34,15 +35,18 @@ private slots:
     void on_timeRadioButton_clicked();
     void on_hintsRadioButton_clicked();
 
+    void on_radioButton_clicked();
+
 private:
     Ui::TopResultsWindow *ui;
     QStringList res;
-    QVector<Quartet> table;
+    QVector<topRLine> table;
     QStandardItemModel* model;
     bool difficultySort = false;
     bool nameSort = false;
     bool timeSort = true;
     bool hintsSort = false;
+    bool mistakesSort = false;
     void sort();
     void setTable();
 };

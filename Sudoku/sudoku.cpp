@@ -86,13 +86,16 @@ void Sudoku::fillStack(int**grid, DLX* matrix)
                 stack.push_back(r);
 
                 Node* currentRow = matrix->getNode(r);
-                matrix->cover(matrix->getColumn(currentRow));
-
-                Node* currentColumn = currentRow->right;
-                while (currentColumn != currentRow)
+                if (currentRow->rowID != -1)
                 {
-                    matrix->cover(matrix->getColumn(currentColumn));
-                    currentColumn = currentColumn->right;
+                    matrix->cover(matrix->getColumn(currentRow));
+
+                    Node* currentColumn = currentRow->right;
+                    while (currentColumn != currentRow)
+                    {
+                        matrix->cover(matrix->getColumn(currentColumn));
+                        currentColumn = currentColumn->right;
+                    }
                 }
 
             }
@@ -170,20 +173,46 @@ void Sudoku::algorithmX(DLX* matrix, int&count)
     matrix->uncover(node);
 }
 
-void Sudoku::solve(QVector<QLineEdit*>&cells)
+bool Sudoku::solve(QVector<QLineEdit*>&cells)
 {
+    bool fl = true;
     if (algorithmX())
     {
         for (int i = 0; i < stack.size(); i++)
         {
             grid[stack[i] / 81][(stack[i] / 9) % 9] = stack[i] % 9 + 1;
         }
-        for (int i = 0; i < 81; i++)
+
+        for (int i = 0; i < 9; i++)
         {
-            cells[i]->setText(QString::number(grid[i / 9][i % 9]));
-            cells[i]->setReadOnly(true);
+            for (int j = 0; j < 9; j++)
+            {
+                for (int l = 0; l < 9; l++)
+                    if ((grid[i][j] == grid[i][l])&&(j!=l))
+                        fl = false;
+                for (int l = 0; l < 9; l++)
+                    if ((grid[i][j] == grid[l][j])&&(i!=l))
+                        fl = false;
+                for (int l = (i / 3) * 3; l < (i / 3 + 1) * 3; l++)
+                    for (int m = (j / 3) * 3; m < (j / 3 + 1) * 3; m++)
+                        if ((grid[i][j] == grid[l][m]) && (l != i) && (m != j))
+                            fl = false;
+            }
         }
+        if (fl)
+        {
+            for (int i = 0; i < 81; i++)
+            {
+                cells[i]->setText(QString::number(grid[i / 9][i % 9]));
+                cells[i]->setReadOnly(true);
+            }
+            return true;
+        }
+        else
+            return false;
      }
+    else
+        return false;
 }
 
 void Sudoku::swapRows(int i, int j)

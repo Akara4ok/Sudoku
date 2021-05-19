@@ -22,6 +22,7 @@ SudokuGenerationWindow::SudokuGenerationWindow(QWidget *parent, QString difficul
         cells[i]->setValidator(new QRegularExpressionValidator(rx, this));
     timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(onTimeout()));
+
     if (!continueGame)
     {
         difficulty = difficulty1;
@@ -29,6 +30,7 @@ SudokuGenerationWindow::SudokuGenerationWindow(QWidget *parent, QString difficul
         hints = 0;
         ui->label->setText("Sudoku("+difficulty+")");
         timer->start(1000);
+        mistakes = 0;
         time = 0;
     }
     else
@@ -71,6 +73,9 @@ SudokuGenerationWindow::SudokuGenerationWindow(QWidget *parent, QString difficul
                     last = next + 1;
                     next = s.indexOf(" ", last);
                     time = (s.mid(last, next - last)).toInt();
+                    last = next + 1;
+                    next = s.indexOf(" ", last);
+                    mistakes = (s.mid(last, next - last)).toInt();
                     hints = (s.mid(next, s.length() - next - 1)).toInt();
                     ui->label->setText("Sudoku("+difficulty+")");
                     ui->lcdNumber->display(time);
@@ -82,9 +87,8 @@ SudokuGenerationWindow::SudokuGenerationWindow(QWidget *parent, QString difficul
     }
     for (int i = 0; i < 81; i++)
     {
-         connect(cells[i], SIGNAL(textChanged(const QString &)), this, SLOT(checkForCorrect()));
+         connect(cells[i], SIGNAL(textEdited(const QString &)), this, SLOT(checkForCorrect()));
     }
-    //connect(ui->lineEdit, SIGNAL(textEdited(const QString&s)), this, SLOT(checkForCorrect()));
 }
 
 SudokuGenerationWindow::~SudokuGenerationWindow()
@@ -181,6 +185,10 @@ int SudokuGenerationWindow::getHints()
 {
     return hints;
 }
+int SudokuGenerationWindow::getMistakes()
+{
+    return mistakes;
+}
 
 void SudokuGenerationWindow::on_saveButton_clicked()
 {
@@ -204,7 +212,7 @@ void SudokuGenerationWindow::on_saveButton_clicked()
             s = QString::number(i) + " " + cells[i]->text() + " " + cells[i]->styleSheet() + "\n";
         saveFile.write(s.toUtf8());
     }
-    s = difficulty + " " + QString::number(time) + " " + QString::number(hints) + "\n";
+    s = difficulty + " " + QString::number(time) + " "+ QString::number(mistakes) + " " + QString::number(hints) + "\n";
     saveFile.write(s.toUtf8());
     saveFile.close();
     emit saveGame();
@@ -217,8 +225,11 @@ void SudokuGenerationWindow::checkForCorrect()
     for (int i = 0; i < 81; i++)
         if (cells[i] == line)
             ind = i;
-    if (!sudoku.isCorrect(ind, (cells[ind]->text()).toInt()))
+    if ((!sudoku.isCorrect(ind, (cells[ind]->text()).toInt()))&&(line->text()!=""))
+    {
         line -> setStyleSheet("color: red; background-color:white");
+        mistakes++;
+    }
     else
         line -> setStyleSheet("color: blue; background-color:white");
 }

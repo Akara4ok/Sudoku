@@ -31,7 +31,7 @@ public:
     Sudoku(QVector<QLineEdit*>);
     ~Sudoku();
     void setGrid(int**grid1);
-    void solve(QVector<QLineEdit*>&);
+    bool solve(QVector<QLineEdit*>&);
     void generate(QVector<QLineEdit*>&, QString);
     bool equal(QVector<QLineEdit*>);
     void hint(QVector<QLineEdit*>, int&, int&);

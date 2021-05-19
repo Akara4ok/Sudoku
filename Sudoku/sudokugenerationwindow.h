@@ -26,6 +26,7 @@ public:
     int getTime();
     QString getDifficulty();
     int getHints();
+    int getMistakes();
 
 
 signals:
@@ -53,6 +54,7 @@ private:
     QTimer *timer;
     Sudoku sudoku;
     int hints;
+    int mistakes;
 
     //QLineEdit* lineEdit = new QLineEdit();
 };

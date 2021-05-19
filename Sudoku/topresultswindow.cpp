@@ -1,16 +1,17 @@
 ﻿#include "topresultswindow.h"
 #include "ui_topresultswindow.h"
 
-TopResultsWindow::TopResultsWindow(QWidget *parent, QString s, int time, QString difficulty, int hints) :
+TopResultsWindow::TopResultsWindow(QWidget *parent, QString s, int time, QString difficulty, int mistakes, int hints) :
     QDialog(parent),
     ui(new Ui::TopResultsWindow)
 {
     ui->setupUi(this);
-    model = new QStandardItemModel(0, 4, this);
+    model = new QStandardItemModel(0, 5, this);
     model->setHeaderData(0, Qt::Horizontal, "Difficulty");
     model->setHeaderData(1, Qt::Horizontal, "Name");
     model->setHeaderData(2, Qt::Horizontal, "Time");
-    model->setHeaderData(3, Qt::Horizontal, "Hints");
+    model->setHeaderData(3, Qt::Horizontal, "Mistakes");
+    model->setHeaderData(4, Qt::Horizontal, "Hints");
     //ui->tableView->setModel(model);
     ui->label->setText(s);
     QString name;
@@ -37,7 +38,7 @@ TopResultsWindow::TopResultsWindow(QWidget *parent, QString s, int time, QString
     {
         if (time != 0)
         {
-            QString s = difficulty + "," + name + "," + QString::number(time) + "," + QString::number(hints) + "\n";
+            QString s = difficulty + "," + name + "," + QString::number(time) + ","+ QString::number(mistakes) + "," + QString::number(hints) + "\n";
             res << s;
         }
         QTextStream fout(&topRes);
@@ -52,10 +53,10 @@ TopResultsWindow::TopResultsWindow(QWidget *parent, QString s, int time, QString
     {
         int last = 0;
         int next = 0;
-        Quartet q;
+        topRLine q;
         model->insertRow(i);
         table.push_back(q);
-        for (int j = 0; j < 4; j++)
+        for (int j = 0; j < 5; j++)
         {
 
             QStandardItem *item= new QStandardItem();
@@ -78,7 +79,8 @@ TopResultsWindow::TopResultsWindow(QWidget *parent, QString s, int time, QString
             table[i].difficulty = 2;
         table[i].name = model->data(model->index(i,1)).toString();
         table[i].time = model->data(model->index(i,2)).toInt();
-        table[i].hints = model->data(model->index(i,3)).toInt();
+        table[i].mistakes = model->data(model->index(i,3)).toInt();
+        table[i].hints = model->data(model->index(i,4)).toInt();
     }
     sort();
     setTable();
@@ -106,17 +108,18 @@ void TopResultsWindow::on_clearButton_clicked()
         topRes.write("");
         topRes.close();
     }
-    QStandardItemModel* model = new QStandardItemModel(0, 4, this);
+    QStandardItemModel* model = new QStandardItemModel(0, 5, this);
     model->setHeaderData(0, Qt::Horizontal, "Difficulty");
     model->setHeaderData(1, Qt::Horizontal, "Name");
     model->setHeaderData(2, Qt::Horizontal, "Time");
-    model->setHeaderData(3, Qt::Horizontal, "Hints");
+    model->setHeaderData(3, Qt::Horizontal, "Mistakes");
+    model->setHeaderData(4, Qt::Horizontal, "Hints");
     ui->tableView->setModel(model);
 }
 
 void TopResultsWindow::sort()
 {
-    Quartet temp;
+    topRLine temp;
     if (timeSort)
     {
         for (int i = 0; i < table.size(); i++)
@@ -161,6 +164,17 @@ void TopResultsWindow::sort()
                    table[j] = temp;
             }
     }
+    if (mistakesSort)
+    {
+        for (int i = 0; i < table.size(); i++)
+            for(int j = i + 1; j < table.size(); j++)
+                if (table[i].mistakes > table[j].mistakes)
+                {
+                   temp = table[i];
+                   table[i] = table[j];
+                   table[j] = temp;
+            }
+    }
 }
 
 void TopResultsWindow::setTable()
@@ -187,9 +201,13 @@ void TopResultsWindow::setTable()
         item2->setTextAlignment(Qt::AlignCenter);
         model->setItem(i, 2, item2);
         QStandardItem *item3= new QStandardItem();
-        item3 -> setText(QString::number(table[i].hints));
+        item3 -> setText(QString::number(table[i].mistakes));
         item3->setTextAlignment(Qt::AlignCenter);
         model->setItem(i, 3, item3);
+        QStandardItem *item4= new QStandardItem();
+        item4 -> setText(QString::number(table[i].hints));
+        item4->setTextAlignment(Qt::AlignCenter);
+        model->setItem(i, 4, item4);
     }
     ui->tableView->setModel(model);
 }
@@ -200,6 +218,7 @@ void TopResultsWindow::on_difficultyRadioButton_clicked()
     nameSort = false;
     timeSort = false;
     hintsSort = false;
+    mistakesSort = false;
     sort();
     setTable();
 }
@@ -210,6 +229,7 @@ void TopResultsWindow::on_nameRadioButton_clicked()
     nameSort = true;
     timeSort = false;
     hintsSort = false;
+    mistakesSort = false;
     sort();
     setTable();
 }
@@ -220,6 +240,7 @@ void TopResultsWindow::on_timeRadioButton_clicked()
     nameSort = false;
     timeSort = true;
     hintsSort = false;
+    mistakesSort = false;
     sort();
     setTable();
 }
@@ -230,6 +251,18 @@ void TopResultsWindow::on_hintsRadioButton_clicked()
     nameSort = false;
     timeSort = false;
     hintsSort = true;
+    mistakesSort = false;
+    sort();
+    setTable();
+}
+
+void TopResultsWindow::on_radioButton_clicked()
+{
+    difficultySort = false;
+    nameSort = false;
+    timeSort = false;
+    hintsSort = false;
+    mistakesSort = true;
     sort();
     setTable();
 }

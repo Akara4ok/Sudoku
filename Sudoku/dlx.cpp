@@ -256,7 +256,8 @@ Node* DLX::getNode(int r)
     {
         current = current->right;
     }
-    while (current->rowID < r)
+    current = current->down;
+    while ((current->rowID < r) && (current->rowID!=-1))
     {
         current = current->down;
     }

@@ -1,15 +1,16 @@
-#ifndef QUARTET_H
-#define QUARTET_H
+#ifndef TOPRLINE_H
+#define TOPRLINE_H
 
 #include <QString>
 
-struct Quartet
+struct topRLine
 {
     int difficulty;
     QString name;
     int time;
+    int mistakes;
     int hints;
-    Quartet(){};
+    topRLine(){};
 };
 
-#endif // QUARTET_H
+#endif // TOPRLINE_H
