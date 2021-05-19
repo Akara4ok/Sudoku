@@ -130,13 +130,6 @@ bool Sudoku::algorithmX()
         }
         else
         {
-            currentColumn = currentRow->left;
-            while (currentColumn != currentRow)
-            {
-                matrix->uncover(matrix->getColumn(currentColumn));
-                currentColumn = currentColumn->left;
-            }
-            currentRow = currentRow->down;
             return true;
         }
 
@@ -414,6 +407,14 @@ void Sudoku::showSolutions(QVector<QLineEdit*>cells)
 int** Sudoku::getGrid()
 {
     return grid;
+}
+
+bool Sudoku::isCorrect(int ind, int value)
+{
+    if (grid[ind / 9][ind % 9]==value)
+        return true;
+    else
+        return false;
 }
 
 Sudoku::~Sudoku()

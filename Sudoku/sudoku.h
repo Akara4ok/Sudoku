@@ -37,6 +37,7 @@ public:
     void hint(QVector<QLineEdit*>, int&, int&);
     void showSolutions(QVector<QLineEdit*>);
     int** getGrid();
+    bool isCorrect(int, int);
 
 };
 

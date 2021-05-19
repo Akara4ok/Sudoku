@@ -8,6 +8,7 @@
 #include <QRegularExpressionValidator>
 #include <QFile>
 #include <QInputDialog>
+#include <QMessageBox>
 
 namespace Ui {
 class SolveSudokuWindow;

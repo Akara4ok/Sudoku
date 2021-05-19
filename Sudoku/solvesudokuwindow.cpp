@@ -38,6 +38,19 @@ void SolveSudokuWindow::on_solveButton_clicked()
 {
     Sudoku sudoku(cells);
     sudoku.solve(cells);
+    bool fl = true;
+    for (int i = 0; i < 81; i++)
+    {
+        for (int j = 0; j < 9; j++)
+        {
+            if ((((cells[i]->text()).toInt() == (cells[j*9 + i % 9]->text()).toInt()) && (i != j*9 + i % 9))||(cells[i]->text()==""))
+                fl = false;
+            //if (((cells[i] == cells[(i / 9)*9 + j]) && (i != (i / 9)*9 + j))||(cells[i]->text()==""))
+            //    fl = false;
+        }
+    }
+    if (!fl)
+        QMessageBox::about(0, "Error", "Wrong sudoku");
 }
 
 void SolveSudokuWindow::on_clearButton_clicked()

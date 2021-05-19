@@ -80,6 +80,11 @@ SudokuGenerationWindow::SudokuGenerationWindow(QWidget *parent, QString difficul
            sudoku.setGrid(grid1);
         }
     }
+    for (int i = 0; i < 81; i++)
+    {
+         connect(cells[i], SIGNAL(textChanged(const QString &)), this, SLOT(checkForCorrect()));
+    }
+    //connect(ui->lineEdit, SIGNAL(textEdited(const QString&s)), this, SLOT(checkForCorrect()));
 }
 
 SudokuGenerationWindow::~SudokuGenerationWindow()
@@ -136,7 +141,7 @@ void SudokuGenerationWindow::on_hintButton_clicked()
     if (ind != -1)
     {
     cells[ind]->setText(QString::number(value));
-    cells[ind]->setStyleSheet("color: red");
+    cells[ind]->setStyleSheet("color: purple");
     cells[ind]->setReadOnly(true);
     int r, c;
     r = ind / 9 + 1;
@@ -204,3 +209,17 @@ void SudokuGenerationWindow::on_saveButton_clicked()
     saveFile.close();
     emit saveGame();
 }
+
+void SudokuGenerationWindow::checkForCorrect()
+{
+    QLineEdit *line = (QLineEdit*) sender();
+    int ind;
+    for (int i = 0; i < 81; i++)
+        if (cells[i] == line)
+            ind = i;
+    if (!sudoku.isCorrect(ind, (cells[ind]->text()).toInt()))
+        line -> setStyleSheet("color: red; background-color:white");
+    else
+        line -> setStyleSheet("color: blue; background-color:white");
+}
+

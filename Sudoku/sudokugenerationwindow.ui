@@ -82,7 +82,7 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}  QLineEdit:hoover{border-width: 1px;	; color: blue; background-color: white; border-color:black}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhNone</set>
@@ -145,7 +145,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -202,7 +205,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -259,7 +265,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -316,7 +325,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -373,7 +385,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -430,7 +445,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -487,7 +505,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -544,7 +565,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -601,7 +625,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -658,7 +685,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -715,7 +745,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -772,7 +805,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -829,7 +865,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -886,7 +925,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -943,7 +985,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -1000,7 +1045,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -1057,7 +1105,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -1114,7 +1165,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -1171,7 +1225,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -1228,7 +1285,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -1285,7 +1345,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -1342,7 +1405,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -1399,7 +1465,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -1456,7 +1525,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -1513,7 +1585,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -1570,7 +1645,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -1627,7 +1705,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -1684,7 +1765,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -1741,7 +1825,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -1798,7 +1885,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -1855,7 +1945,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -1912,7 +2005,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -1969,7 +2065,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -2026,7 +2125,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -2083,7 +2185,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -2140,7 +2245,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -2197,7 +2305,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -2254,7 +2365,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -2311,7 +2425,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -2368,7 +2485,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -2425,7 +2545,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -2482,7 +2605,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -2539,7 +2665,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -2596,7 +2725,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -2653,7 +2785,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -2710,7 +2845,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -2767,7 +2905,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -2824,7 +2965,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -2881,7 +3025,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -2938,7 +3085,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -2995,7 +3145,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -3052,7 +3205,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -3109,7 +3265,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -3166,7 +3325,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -3223,7 +3385,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -3280,7 +3445,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -3337,7 +3505,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -3394,7 +3565,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -3451,7 +3625,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -3508,7 +3685,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -3565,7 +3745,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -3622,7 +3805,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -3679,7 +3865,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -3736,7 +3925,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -3793,7 +3985,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -3850,7 +4045,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -3907,7 +4105,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -3964,7 +4165,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -4021,7 +4225,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -4078,7 +4285,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -4135,7 +4345,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -4192,7 +4405,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -4249,7 +4465,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -4306,7 +4525,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -4363,7 +4585,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -4420,7 +4645,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -4477,7 +4705,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -4534,7 +4765,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -4591,7 +4825,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>
@@ -4648,7 +4885,10 @@
     <enum>Qt::NoContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{	border-width: 1px;	border-color: black; color: blue;}  QLineEdit:hover{border-width: 1px;	border-color: black;background-color: white;}</string>
+    <string notr="true">QLineEdit{	border-width: 1px;	; color: blue; background-color: white; border-color:black}
+QListView::item:selected:active {
+border-color:black
+}</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhNoTextHandles</set>

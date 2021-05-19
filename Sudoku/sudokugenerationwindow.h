@@ -42,6 +42,8 @@ private slots:
     void on_showSolutionButton_clicked();
     void on_rulesButton_clicked();
     void on_saveButton_clicked();
+    void checkForCorrect();
+
 
 private:
     Ui::SudokuGenerationWindow *ui;
