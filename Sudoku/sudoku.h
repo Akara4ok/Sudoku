@@ -32,10 +32,8 @@ public:
     ~Sudoku();
     void setGrid(int**grid1);
     bool solve(QVector<QLineEdit*>&);
-    void generate(QVector<QLineEdit*>&, QString);
+    int** generate(QString);
     bool equal(QVector<QLineEdit*>);
-    void hint(QVector<QLineEdit*>, int&, int&);
-    void showSolutions(QVector<QLineEdit*>);
     int** getGrid();
     bool isCorrect(int, int);
 

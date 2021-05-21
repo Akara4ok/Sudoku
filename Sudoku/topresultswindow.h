@@ -34,8 +34,7 @@ private slots:
     void on_nameRadioButton_clicked();
     void on_timeRadioButton_clicked();
     void on_hintsRadioButton_clicked();
-
-    void on_radioButton_clicked();
+    void on_mistakesRadioButton_clicked();
 
 private:
     Ui::TopResultsWindow *ui;

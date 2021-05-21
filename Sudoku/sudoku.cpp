@@ -201,11 +201,6 @@ bool Sudoku::solve(QVector<QLineEdit*>&cells)
         }
         if (fl)
         {
-            for (int i = 0; i < 81; i++)
-            {
-                cells[i]->setText(QString::number(grid[i / 9][i % 9]));
-                cells[i]->setReadOnly(true);
-            }
             return true;
         }
         else
@@ -372,7 +367,7 @@ int** Sudoku::deleteCells(int total)
     return result;
 }
 
-void Sudoku::generate(QVector<QLineEdit*>&cells, QString difficulty)
+int** Sudoku::generate(QString difficulty)
 {
     randSudoku();
     int**randomSudoku;
@@ -382,15 +377,7 @@ void Sudoku::generate(QVector<QLineEdit*>&cells, QString difficulty)
         randomSudoku = deleteCells(47);
     if (QString::compare(difficulty, "Expert") == 0)
         randomSudoku = deleteCells(55);
-
-    for (int i = 0; i < 9; i++)
-        for (int j = 0; j < 9; j++)
-            if (randomSudoku[i][j]!=0)
-            {
-                cells[i*9 + j]->setText(QString::number(randomSudoku[i][j]));
-                cells[i*9 + j]->setReadOnly(true);
-                cells[i*9 + j]->setStyleSheet("color: black");
-            }
+    return randomSudoku;
 }
 
 bool Sudoku::equal(QVector<QLineEdit*>cells)
@@ -401,36 +388,6 @@ bool Sudoku::equal(QVector<QLineEdit*>cells)
             if ((cells[i*9 + j]->text()).toInt() != grid[i][j])
                 result = false;
     return result;
-}
-
-void Sudoku::hint(QVector<QLineEdit*>cells, int&ind, int&value)
-{
-    QList<int> avail;
-    for (int i = 0; i < 9; i++)
-        for(int j = 0; j < 9; j++)
-            if ((cells[i*9 + j]->text()).toInt() != grid[i][j])
-                avail.push_back(i*9 + j);
-    ind = -1;
-    if (!avail.empty())
-    {
-        int r = rand()%(avail.size());
-        ind = avail.at(r);
-        value = grid[ind / 9][ind % 9];
-    }
-}
-
-void Sudoku::showSolutions(QVector<QLineEdit*>cells)
-{
-    for (int i = 0; i < 9; i++)
-        for(int j = 0; j < 9; j++)
-        {
-            cells[i*9 + j]->setReadOnly(true);
-            if ((cells.at(i*9 + j)->text()).toInt() != grid[i][j])
-            {
-                cells[i*9 + j]->setText(QString::number(grid[i][j]));
-                cells[i*9 + j]->setStyleSheet("background-color: white; color: black");
-            }
-        }
 }
 
 int** Sudoku::getGrid()

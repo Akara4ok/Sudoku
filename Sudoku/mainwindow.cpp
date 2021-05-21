@@ -30,7 +30,7 @@ void MainWindow::easySudoku()
     sudokuGeneration->show();
     connect(sudokuGeneration, &SudokuGenerationWindow::showResults, this, &MainWindow::showR);
     connect(sudokuGeneration, &SudokuGenerationWindow::mainWindow, this, &MainWindow::show);
-    connect(sudokuGeneration, &SudokuGenerationWindow::saveGame, this, &MainWindow::enableButton);
+    connect(sudokuGeneration, &SudokuGenerationWindow::saveGame, this, &MainWindow::enableContinue);
 }
 
 void MainWindow::mediumSudoku()
@@ -45,7 +45,7 @@ void MainWindow::mediumSudoku()
     sudokuGeneration->show();
     connect(sudokuGeneration, &SudokuGenerationWindow::showResults, this, &MainWindow::showR);
     connect(sudokuGeneration, &SudokuGenerationWindow::mainWindow, this, &MainWindow::show);
-    connect(sudokuGeneration, &SudokuGenerationWindow::saveGame, this, &MainWindow::enableButton);
+    connect(sudokuGeneration, &SudokuGenerationWindow::saveGame, this, &MainWindow::enableContinue);
 }
 
 void MainWindow::expertSudoku()
@@ -60,7 +60,7 @@ void MainWindow::expertSudoku()
     sudokuGeneration->show();
     connect(sudokuGeneration, &SudokuGenerationWindow::showResults, this, &MainWindow::showR);
     connect(sudokuGeneration, &SudokuGenerationWindow::mainWindow, this, &MainWindow::show);
-    connect(sudokuGeneration, &SudokuGenerationWindow::saveGame, this, &MainWindow::enableButton);
+    connect(sudokuGeneration, &SudokuGenerationWindow::saveGame, this, &MainWindow::enableContinue);
 }
 
 void MainWindow::on_newGameButton_clicked()
@@ -115,7 +115,7 @@ void MainWindow::closeR()
     this->show();
 }
 
-void MainWindow::enableButton()
+void MainWindow::enableContinue()
 {
     ui->continueButton->setEnabled(true);
 }
@@ -127,6 +127,6 @@ void MainWindow::on_continueButton_clicked()
     sudokuGeneration->show();
     connect(sudokuGeneration, &SudokuGenerationWindow::showResults, this, &MainWindow::showR);
     connect(sudokuGeneration, &SudokuGenerationWindow::mainWindow, this, &MainWindow::show);
-    connect(sudokuGeneration, &SudokuGenerationWindow::saveGame, this, &MainWindow::enableButton);
+    connect(sudokuGeneration, &SudokuGenerationWindow::saveGame, this, &MainWindow::enableContinue);
 
 }

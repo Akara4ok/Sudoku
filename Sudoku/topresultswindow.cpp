@@ -84,7 +84,7 @@ TopResultsWindow::TopResultsWindow(QWidget *parent, QString s, int time, QString
     }
     sort();
     setTable();
-    ui->tableView->verticalHeader()->setStyleSheet("background-color: white");
+    //ui->tableView->verticalHeader()->setStyleSheet("background-color: white");
 }
 
 TopResultsWindow::~TopResultsWindow()
@@ -256,7 +256,7 @@ void TopResultsWindow::on_hintsRadioButton_clicked()
     setTable();
 }
 
-void TopResultsWindow::on_radioButton_clicked()
+void TopResultsWindow::on_mistakesRadioButton_clicked()
 {
     difficultySort = false;
     nameSort = false;

@@ -14,7 +14,6 @@ public:
     Node* head;
     //DLX(int n);
     void push(int*, int, int);
-    void print();
     void cover(Node*);
     void uncover(Node*);
     Node* findMin();

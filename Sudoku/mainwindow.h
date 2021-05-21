@@ -37,6 +37,6 @@ private:
     void expertSudoku();
     void showR();
     void closeR();
-    void enableButton();
+    void enableContinue();
 };
 #endif // MAINWINDOW_H

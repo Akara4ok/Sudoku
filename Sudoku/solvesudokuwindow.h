@@ -34,6 +34,7 @@ private slots:
 private:
     Ui::SolveSudokuWindow *ui;
     QVector<QLineEdit*> cells;
+    Sudoku* sudoku;
 };
 
 #endif // SOLVESUDOKUWINDOW_H

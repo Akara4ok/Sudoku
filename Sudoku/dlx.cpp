@@ -170,22 +170,6 @@ void DLX::push(int* row, int r, int n)
     }
 }
 
-void DLX::print()
-{
-    Node* current = head->right;
-    while (current != head)
-    {
-        current = current->down;
-        while (current->rowID != -1)
-        {
-            std::cout << current->rowID << " " << current->colID << std::endl;
-            current = current->down;
-        }
-
-        current = current->right;
-    }
-}
-
 void DLX::cover(Node* headCol)
 {
     headCol->left->right = headCol->right;

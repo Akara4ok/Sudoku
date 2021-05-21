@@ -26,12 +26,20 @@ SudokuGenerationWindow::SudokuGenerationWindow(QWidget *parent, QString difficul
     if (!continueGame)
     {
         difficulty = difficulty1;
-        sudoku.generate(cells, difficulty);
+        int** randomSudoku = sudoku.generate(difficulty);
         hints = 0;
         ui->label->setText("Sudoku("+difficulty+")");
         timer->start(1000);
         mistakes = 0;
         time = 0;
+        for (int i = 0; i < 9; i++)
+            for (int j = 0; j < 9; j++)
+                if (randomSudoku[i][j]!=0)
+                {
+                    cells[i*9 + j]->setText(QString::number(randomSudoku[i][j]));
+                    cells[i*9 + j]->setReadOnly(true);
+                    cells[i*9 + j]->setStyleSheet("color: black");
+                }
     }
     else
     {
@@ -141,7 +149,19 @@ void SudokuGenerationWindow::on_hintButton_clicked()
 {
     hints++;
     int ind, value;
-    sudoku.hint(cells, ind, value);
+    int**grid = sudoku.getGrid();
+    QVector<int> avail;
+    for (int i = 0; i < 9; i++)
+        for(int j = 0; j < 9; j++)
+            if ((cells[i*9 + j]->text()).toInt() != grid[i][j])
+                avail.push_back(i*9 + j);
+    ind = -1;
+    if (!avail.empty())
+    {
+        int r = rand()%(avail.size());
+        ind = avail.at(r);
+        value = grid[ind / 9][ind % 9];
+    }
     if (ind != -1)
     {
     cells[ind]->setText(QString::number(value));
@@ -157,7 +177,18 @@ void SudokuGenerationWindow::on_hintButton_clicked()
 void SudokuGenerationWindow::on_showSolutionButton_clicked()
 {
     timer->stop();
-    sudoku.showSolutions(cells);
+    //sudoku.showSolutions(cells);
+    int**result = sudoku.getGrid();
+    for (int i = 0; i < 9; i++)
+        for(int j = 0; j < 9; j++)
+        {
+            cells[i*9 + j]->setReadOnly(true);
+            if ((cells[i*9 + j]->text()).toInt() != result[i][j])
+            {
+                cells[i*9 + j]->setText(QString::number(result[i][j]));
+                cells[i*9 + j]->setStyleSheet("background-color: white; color: black");
+            }
+        }
     ui->hintButton->setEnabled(false);
     //ui->checkButton->setEnabled(false);
     ui->clearButton->setEnabled(false);
