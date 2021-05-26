@@ -68,7 +68,7 @@ SudokuGenerationWindow::SudokuGenerationWindow(QWidget *parent, QString difficul
                     cells[ind]->setText(s.mid(last, next - last));
                     QString st = s.mid(next, s.length() - next - 1);
                     cells[ind]->setStyleSheet(st);
-                    if ((st.indexOf("black")!= -1)||(st.indexOf("red")!= -1))
+                    if ((st.indexOf("black")!= -1)||(st.indexOf("purple")!= -1))
                     {
                         cells[ind]->setReadOnly(true);
                     }

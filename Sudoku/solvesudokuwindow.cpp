@@ -37,17 +37,20 @@ void SolveSudokuWindow::on_quitButton_clicked()
 void SolveSudokuWindow::on_solveButton_clicked()
 {
     sudoku = new Sudoku(cells);
-    sudoku->solve(cells);
-    int**grid = sudoku->getGrid();
-    for (int i = 0; i < 81; i++)
+    if(sudoku->solve(cells))
     {
-        cells[i]->setText(QString::number(grid[i / 9][i % 9]));
-        cells[i]->setReadOnly(true);
+        int**grid = sudoku->getGrid();
+        for (int i = 0; i < 81; i++)
+        {
+            cells[i]->setText(QString::number(grid[i / 9][i % 9]));
+            cells[i]->setReadOnly(true);
+        }
+        delete sudoku;
     }
-    delete sudoku;
-    //bool fl = true;
-    //if (!fl)
-    //    QMessageBox::about(0, "Error", "Wrong sudoku");
+    else
+    {
+        QMessageBox::about(0, "Error", "Wrong sudoku");
+    }
 }
 
 void SolveSudokuWindow::on_clearButton_clicked()

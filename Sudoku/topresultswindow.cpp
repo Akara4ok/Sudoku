@@ -19,6 +19,8 @@ TopResultsWindow::TopResultsWindow(QWidget *parent, QString s, int time, QString
     {
         ui->label_3->setText("Your time: " + QString::number(time) + "s");
         name = QInputDialog::getText( 0, "Input", "Name:", QLineEdit::Normal);
+        if (name == "")
+            name = "Anonym";
     }
     QFile topRes(QDir::currentPath() + "\\topResults.txt");
     if(!topRes.exists())
