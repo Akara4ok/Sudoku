@@ -9,6 +9,8 @@
 #include <QFile>
 #include <QFileDialog>
 #include <QMessageBox>
+#include <QGridLayout>
+#include <QFont>
 
 namespace Ui {
 class SolveSudokuWindow;
@@ -35,6 +37,7 @@ private:
     Ui::SolveSudokuWindow *ui;
     QVector<QLineEdit*> cells;
     Sudoku* sudoku;
+    QVector<QGridLayout*> grids;
 };
 
 #endif // SOLVESUDOKUWINDOW_H

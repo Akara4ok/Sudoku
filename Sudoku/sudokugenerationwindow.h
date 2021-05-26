@@ -11,6 +11,7 @@
 #include "sudoku.h"
 #include <QFile>
 #include <qdir.h>
+#include <QGridLayout>
 
 namespace Ui {
 class SudokuGenerationWindow;
@@ -55,7 +56,7 @@ private:
     Sudoku sudoku;
     int hints;
     int mistakes;
-
+    QVector<QGridLayout*> grids;
     //QLineEdit* lineEdit = new QLineEdit();
 };
 
