@@ -7,6 +7,7 @@
 #include <QTimer>
 #include <QString>
 #include <QLCDNumber>
+#include <QGridLayout>
 
 namespace Ui {
 class SudokuGenerationWindow;
@@ -27,6 +28,7 @@ private:
     Ui::SudokuGenerationWindow *ui;
     QList<QLineEdit*> list;
     int time;
+    QList<QGridLayout*> grids;
 
     //QLineEdit* lineEdit = new QLineEdit();
 };

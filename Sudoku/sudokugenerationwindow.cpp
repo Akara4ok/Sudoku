@@ -23,16 +23,32 @@ SudokuGenerationWindow::SudokuGenerationWindow(QWidget *parent) :
             ui->lineEdit_73, ui->lineEdit_74, ui->lineEdit_75, ui->lineEdit_76, ui->lineEdit_77, ui->lineEdit_78, ui->lineEdit_79, ui->lineEdit_80, ui->lineEdit_81};
     for (int i = 0; i < 81; i++)
         list.at(i)->setValidator(new QIntValidator);*/
-    ui->gridLayout->minimumSize().setHeight(90);
-    ui->gridLayout->minimumSize().setWidth(90);
-    ui->gridLayout->maximumSize().setHeight(90);
-    ui->gridLayout->maximumSize().setWidth(90);
-    for (int i = 0; i < 3; ++i) {
-        QLineEdit* line = new QLineEdit;
-        line->setFixedHeight(30);
-        line->setFixedWidth(30);
-       ui->gridLayout->addWidget(line);
+    ui->gridLayout->setSpacing(10);
+    for (int i = 0; i < 3; i++)
+    {
+       for(int j = 0; j < 3; j++)
+       {
+           grids.push_back(new QGridLayout);
+           grids.back()->minimumSize().setHeight(90);
+           grids.back()->minimumSize().setWidth(90);
+           grids.back()->maximumSize().setHeight(90);
+           grids.back()->maximumSize().setWidth(90);
+           grids.back()->setSizeConstraint(QLayout::SetMaximumSize);
+           grids.back()->setSpacing(0);
+           ui->gridLayout->addLayout(grids.back(), i, j);
+       }
+       for (int j = 0; j < 3; j++)
+       {
+           for (int k = 0; k < 9; k++)
+           {
+               list.push_back(new QLineEdit);
+               list.back()->setFixedHeight(30);
+               list.back()->setFixedWidth(30);
+               grids[3*i + k / 3]->addWidget(list.back(), j, k % 3);
+           }
+       }
     }
+    list[15]->setText("1");
 }
 
 SudokuGenerationWindow::~SudokuGenerationWindow()
