@@ -7,6 +7,7 @@ SudokuGenerationWindow::SudokuGenerationWindow(QWidget *parent, QString difficul
 {
     ui->setupUi(this);
     ui->gridLayout->setSpacing(10);
+    QVector<QGridLayout*> grids;
     for (int i = 0; i < 3; i++)
     {
         for(int j = 0; j < 3; j++)
@@ -209,7 +210,7 @@ void SudokuGenerationWindow::on_showSolutionButton_clicked()
             }
         }
     ui->hintButton->setEnabled(false);
-    //ui->checkButton->setEnabled(false);
+    ui->checkButton->setEnabled(false);
     ui->clearButton->setEnabled(false);
     ui->saveButton->setEnabled(false);
     ui->showSolutionButton->setEnabled(false);

@@ -7,11 +7,23 @@
     <x>0</x>
     <y>0</y>
     <width>472</width>
-    <height>422</height>
+    <height>410</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>472</width>
+    <height>410</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>472</width>
+    <height>410</height>
+   </size>
+  </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Solve</string>
   </property>
   <widget class="QPushButton" name="quitButton">
    <property name="geometry">
@@ -89,7 +101,7 @@
      <x>20</x>
      <y>90</y>
      <width>291</width>
-     <height>321</height>
+     <height>301</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout_2"/>

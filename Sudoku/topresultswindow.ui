@@ -10,8 +10,20 @@
     <height>347</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>602</width>
+    <height>347</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>602</width>
+    <height>347</height>
+   </size>
+  </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Top Results</string>
   </property>
   <widget class="QLabel" name="label">
    <property name="geometry">
