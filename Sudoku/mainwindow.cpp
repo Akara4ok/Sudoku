@@ -122,8 +122,9 @@ void MainWindow::enableContinue()
 
 void MainWindow::on_continueButton_clicked()
 {
+    QString path = QFileDialog::getOpenFileName();
     this->close();
-    sudokuGeneration = new SudokuGenerationWindow(nullptr, "", true);
+    sudokuGeneration = new SudokuGenerationWindow(nullptr, "", true, path);
     sudokuGeneration->show();
     connect(sudokuGeneration, &SudokuGenerationWindow::showResults, this, &MainWindow::showR);
     connect(sudokuGeneration, &SudokuGenerationWindow::mainWindow, this, &MainWindow::show);

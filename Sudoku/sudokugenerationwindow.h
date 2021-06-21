@@ -12,6 +12,7 @@
 #include <QFile>
 #include <qdir.h>
 #include <QGridLayout>
+#include <QFileDialog>
 
 namespace Ui {
 class SudokuGenerationWindow;
@@ -22,7 +23,7 @@ class SudokuGenerationWindow : public QDialog
     Q_OBJECT
 
 public:
-    explicit SudokuGenerationWindow(QWidget *parent = nullptr, QString difficulty1 = "", bool continueGame = false); // Конструктор, створює вікно, заповнює його клітинками, якщо це продовження гри, то зчитує всі дані з файлу і встановлює в об'єкт
+    explicit SudokuGenerationWindow(QWidget *parent = nullptr, QString difficulty1 = "", bool continueGame = false, QString path = ""); // Конструктор, створює вікно, заповнює його клітинками, якщо це продовження гри, то зчитує всі дані з файлу і встановлює в об'єкт
     ~SudokuGenerationWindow(); // Деструктор
     int getTime(); // Повертає час, який пройшов з початку розв'язання
     QString getDifficulty(); // Повертає складність судоку
@@ -56,6 +57,8 @@ private:
     Sudoku sudoku; // Об'єкт судоку
     int hints; // Кількість підказок
     int mistakes; // Кількість помилок
+    QVector<int> lastMistake;
+    QString path;
     //QLineEdit* lineEdit = new QLineEdit();
 };
 

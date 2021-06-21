@@ -1,13 +1,14 @@
 #include "sudokugenerationwindow.h"
 #include "ui_sudokugenerationwindow.h"
 
-SudokuGenerationWindow::SudokuGenerationWindow(QWidget *parent, QString difficulty1, bool continueGame) :
+SudokuGenerationWindow::SudokuGenerationWindow(QWidget *parent, QString difficulty1, bool continueGame, QString path1) :
     QDialog(parent),
     ui(new Ui::SudokuGenerationWindow)
 {
     ui->setupUi(this);
     ui->gridLayout->setSpacing(10);
     QVector<QGridLayout*> grids;
+    path = path1;
     for (int i = 0; i < 3; i++)
     {
         for(int j = 0; j < 3; j++)
@@ -63,7 +64,7 @@ SudokuGenerationWindow::SudokuGenerationWindow(QWidget *parent, QString difficul
     }
     else
     {
-        QFile saveFile(QDir::currentPath() + "\\saves.txt");
+        QFile saveFile(path);
         if ((saveFile.exists())&&(saveFile.open(QIODevice::ReadOnly)))
         {
            QString s = "";
@@ -150,6 +151,7 @@ void SudokuGenerationWindow::on_checkButton_clicked()
     if (sudoku.equal(cells))
     {
         timer->stop();
+        QFile::remove(path);
         emit showResults();
     }
     else
@@ -170,6 +172,20 @@ void SudokuGenerationWindow::on_hintButton_clicked()
     hints++;
     int ind, value;
     int**grid = sudoku.getGrid();
+    if (!lastMistake.empty())
+    {
+        cells[lastMistake.back()]->setText(QString::number(grid[lastMistake.back() / 9][lastMistake.back() % 9]));
+        cells[lastMistake.back()]->setStyleSheet("color: purple");
+        cells[lastMistake.back()]->setReadOnly(true);
+        int r, c;
+        r = lastMistake.back() / 9 + 1;
+        c = lastMistake.back()% 9 + 1;
+        int value = grid[lastMistake.back() / 9][lastMistake.back() % 9];
+        QMessageBox::about(0, "Hint", "In (" + QString::number(r) + " row, " + QString::number(c) + " column) you sholud put: " + QString::number(value));
+        lastMistake.pop_back();
+    }
+    else
+    {
     QVector<int> avail;
     for (int i = 0; i < 9; i++)
         for(int j = 0; j < 9; j++)
@@ -191,6 +207,7 @@ void SudokuGenerationWindow::on_hintButton_clicked()
     r = ind / 9 + 1;
     c = ind% 9 + 1;
     QMessageBox::about(0, "Hint", "In (" + QString::number(r) + " row, " + QString::number(c) + " column) you sholud put: " + QString::number(value));
+    }
     }
 }
 
@@ -244,7 +261,10 @@ int SudokuGenerationWindow::getMistakes()
 void SudokuGenerationWindow::on_saveButton_clicked()
 {
     int** grid1 = sudoku.getGrid();
-    QFile saveFile(QDir::currentPath() + "\\saves.txt");
+    QString directory = QDir::currentPath() + "\\saves\\";
+    QString filter = "*.txt";
+    QString path = QFileDialog::getSaveFileName(this, "", directory, filter);
+    QFile saveFile(path);
     saveFile.open(QIODevice::WriteOnly);
     QString s = "";
     for (int i = 0; i < 9; i++)
@@ -278,10 +298,15 @@ void SudokuGenerationWindow::checkForCorrect()
             ind = i;
     if ((!sudoku.isCorrect(ind, (cells[ind]->text()).toInt()))&&(line->text()!=""))
     {
+        lastMistake.push_back(ind);
         line -> setStyleSheet("color: red; background-color:white");
         mistakes++;
     }
     else
+    {
+        if (lastMistake.back() == ind)
+            lastMistake.pop_back();
         line -> setStyleSheet("color: blue; background-color:white");
+    }
 }
 
