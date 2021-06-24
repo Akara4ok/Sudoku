@@ -2,21 +2,6 @@
 
 Sudoku::Sudoku()
 {
-    rows = 729;
-    columns = 324;
-    grid = new int*[9];
-    for (int i = 0; i < 9; i++)
-    {
-        grid[i] = new int [9];
-        for (int j = 0; j < 9; j++)
-            grid[i][j] = 0;
-    }
-
-    extraMatrix = new int* [rows];
-    for (int i = 0; i < rows; i++)
-    {
-        extraMatrix[i] = new int[columns];
-    }
 }
 
 void Sudoku::setGrid(int**grid1)
@@ -57,32 +42,32 @@ void Sudoku::fillExtraMatrix()
             extraMatrix[i][j] = 0;
 
     for (int i = 0; i < rows; i++)
-        for (int j = 0; j < 81; j++)
-            extraMatrix[i][i / 9] = 1;
+        for (int j = 0; j < pow(size, 4); j++)
+            extraMatrix[i][i / (int)pow(size, 2)] = 1;
 
     for (int i = 0; i < rows; i++)
-        for (int j = 81; j < 162; j++)
-            extraMatrix[i][81 + (i / 81) * 9 + i % 9] = 1;
+        for (int j = pow(size, 4); j < 2*pow(size, 4); j++)
+            extraMatrix[i][(int)pow(size, 4) + (int)(i / pow(size, 4)) * (int)pow(size, 2) + i % (int)pow(size, 2)] = 1;
 
     for (int i = 0; i < rows; i++)
-        for (int j = 162; j < 243; j++)
-            extraMatrix[i][162 + i % 81] = 1;
+        for (int j = 2*pow(size, 4); j < 3*pow(size, 4); j++)
+            extraMatrix[i][(int)(2*pow(size, 4)) + i % (int)pow(size, 4)] = 1;
 
     for (int i = 0; i < rows; i++)
-        for (int j = 243; j < 324; j++)
-            extraMatrix[i][243 + ((i / 81) / 3) * 27 + (((i / 9) % 9) / 3) * 9 + i % 9] = 1;
+        for (int j = 3*pow(size, 4); j < columns; j++)
+            extraMatrix[i][(int)(3*pow(size, 4)) + ((i / (int)pow(size, 4)) / size) * (int)pow(size, 3) + (((i / (int)pow(size, 2)) % (int)pow(size, 2)) / size) * (int)pow(size, 2) + i % (int)pow(size, 2)] = 1;
 }
 
 void Sudoku::fillStack(int**grid, DLX* matrix)
 {
     int r;
-    for (int i = 0; i < 9; i++)
+    for (int i = 0; i < pow(size, 2); i++)
     {
-        for (int j = 0; j < 9; j++)
+        for (int j = 0; j < pow(size, 2); j++)
             if (grid[i][j] != 0)
             {
 
-                r = i * 81 + j * 9 + grid[i][j] - 1;
+                r = i * pow(size, 4) + j * pow(size, 2) + grid[i][j] - 1;
                 stack.push_back(r);
 
                 Node* currentRow = matrix->getNode(r);
@@ -221,7 +206,7 @@ void Sudoku::swapRows(int i, int j)
 void Sudoku::swapColumns(int i, int j)
 {
     int temp;
-    for (int k = 0; k < 9; k++)
+    for (int k = 0; k < pow(size, 2); k++)
     {
         temp = grid[k][i];
         grid[k][i] = grid[k][j];
@@ -231,7 +216,7 @@ void Sudoku::swapColumns(int i, int j)
 
 void Sudoku::swapTripleRows(int i, int j)
 {
-    for (int k = 0; k < 3; k++)
+    for (int k = 0; k < size; k++)
     {
         swapRows(i + k, j + k);
     }
@@ -239,7 +224,7 @@ void Sudoku::swapTripleRows(int i, int j)
 
 void Sudoku::swapTripleColumns(int i, int j)
 {
-    for (int k = 0; k < 3; k++)
+    for (int k = 0; k < size; k++)
     {
         swapColumns(i + k, j + k);
     }
@@ -248,9 +233,9 @@ void Sudoku::swapTripleColumns(int i, int j)
 void Sudoku::transposing()
 {
     int temp;
-    for (int i = 0; i < 9; i++)
+    for (int i = 0; i < pow(size, 2); i++)
     {
-        for (int j = i; j < 9; j++)
+        for (int j = i; j < pow(size, 2); j++)
         {
 
             temp = grid[i][j];
@@ -266,24 +251,24 @@ void Sudoku::randomizeGrid(int total)
     for (int i = 0; i < total; i++)
     {
         operation = rand() % 5;
-        int k = rand() % 3;
-        int n = rand() % 3;
-        int m = rand() % 3;
+        int k = rand() % size;
+        int n = rand() % size;
+        int m = rand() % size;
         if (operation == 0)
         {
-            swapRows(n + k*3, m + k*3);
+            swapRows(n + k*size, m + k*size);
         }
         if (operation == 1)
         {
-            swapTripleRows(n*3, m*3);
+            swapTripleRows(n*size, m*size);
         }
         if (operation == 2)
         {
-            swapColumns(n + k * 3, m + k * 3);
+            swapColumns(n + k * size, m + k * size);
         }
         if (operation == 3)
         {
-            swapTripleColumns(n*3, m*3);
+            swapTripleColumns(n*size, m*size);
         }
         if (operation == 4)
         {
@@ -295,9 +280,9 @@ void Sudoku::randomizeGrid(int total)
 void Sudoku::randSudoku()
 {
     int k;
-    for (int i = 0; i < 9; i++)
+    for (int i = 0; i < pow(size, 2); i++)
     {
-        k = rand() % 9;
+        k = rand() % (int)pow(size, 2);
         grid[k][i] = i + 1;
     }
     fillExtraMatrix();
@@ -308,7 +293,7 @@ void Sudoku::randSudoku()
     {
         for (int i = 0; i < stack.size(); i++)
         {
-            grid[stack[i] / 81][(stack[i] / 9) % 9] = stack[i] % 9 + 1;
+            grid[(int)(stack[i] / pow(size, 4))][(int)((int)(stack[i] / pow(size, 2)) % (int)pow(size, 2))] = stack[i] % (int)pow(size, 2) + 1;
         }
     }
     randomizeGrid(100);
@@ -316,11 +301,11 @@ void Sudoku::randSudoku()
 
 int** Sudoku::deleteCells(int total)
 {
-    int** result = new int*[9];
-    for (int i = 0; i < 9; i++)
+    int** result = new int*[(int)pow(size, 2)];
+    for (int i = 0; i < pow(size, 2); i++)
     {
-        result[i] = new int[9];
-        for (int j = 0; j < 9; j++)
+        result[i] = new int[(int)pow(size, 2)];
+        for (int j = 0; j < pow(size, 2); j++)
             result[i][j] = grid[i][j];
     }
     stack.clear();
@@ -328,9 +313,9 @@ int** Sudoku::deleteCells(int total)
     int zeroCells = 0;
     fillExtraMatrix();
     QVector<int> indexes;
-    for (int i = 0; i < 81; i++)
+    for (int i = 0; i < pow(size, 4); i++)
         indexes.push_back(i);
-    DLX* matrix1 = new DLX();
+    DLX* matrix1 = new DLX(size);
     for (int i = 0; i < rows; i++)
         matrix1->push(extraMatrix[i], i, columns);
     while (zeroCells < total)
@@ -339,8 +324,8 @@ int** Sudoku::deleteCells(int total)
         {
 
             int k = indexes[rand() % indexes.size()];
-            i = k / 9;
-            j = k % 9;
+            i = k / pow(size, 2);
+            j = k % (int)pow(size, 2);
             stack.clear();
             DLX* matrix = new DLX(matrix1);
             int temp = result[i][j];
@@ -348,6 +333,7 @@ int** Sudoku::deleteCells(int total)
             fillStack(result, matrix);
             int count = 0;
             algorithmX(matrix, count);
+            //count = 1;
             if (count == 1)
             {
                 result[i][j] = 0;
@@ -369,6 +355,25 @@ int** Sudoku::deleteCells(int total)
 
 int** Sudoku::generate(QString difficulty)
 {
+    if(QString::compare(difficulty, "Giant") == 0)
+        size = 4;
+    else
+        size = 3;
+    rows = pow(size, 6);
+    columns = pow(size, 4)*4;
+    grid = new int*[(int)pow(size, 2)];
+    for (int i = 0; i < pow(size, 2); i++)
+    {
+        grid[i] = new int [(int)pow(size, 2)];
+        for (int j = 0; j < pow(size, 2); j++)
+            grid[i][j] = 0;
+    }
+
+    extraMatrix = new int* [rows];
+    for (int i = 0; i < rows; i++)
+    {
+        extraMatrix[i] = new int[columns];
+    }
     randSudoku();
     int**randomSudoku;
     if (QString::compare(difficulty, "Easy") == 0)
@@ -377,6 +382,8 @@ int** Sudoku::generate(QString difficulty)
         randomSudoku = deleteCells(47);
     if (QString::compare(difficulty, "Expert") == 0)
         randomSudoku = deleteCells(55);
+    if (QString::compare(difficulty, "Giant") == 0)
+        randomSudoku = deleteCells(5);
     return randomSudoku;
 }
 

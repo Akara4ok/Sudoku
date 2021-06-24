@@ -12,6 +12,7 @@ class Sudoku
     int** grid; // Матриця для збереження судоку
     int** extraMatrix; // Додаткова матриця для відображення судоку, як задачі точного покриття
     int rows, columns; // Кількість рядків і стовпців в extraMatrix
+    int size;
     DLX* matrix = new DLX(); // Структура даних "Dancing Links" для збереження елементів extraMatrix
     QVector<int> stack; // Тут зберігається відповідь
     void fillExtraMatrix(); // Процедура заповнення extraMatrix

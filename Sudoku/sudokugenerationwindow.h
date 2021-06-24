@@ -56,6 +56,7 @@ private:
     Sudoku sudoku; // Об'єкт судоку
     int hints; // Кількість підказок
     int mistakes; // Кількість помилок
+    int size;
     //QLineEdit* lineEdit = new QLineEdit();
 };
 

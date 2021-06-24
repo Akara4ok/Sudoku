@@ -8,9 +8,30 @@ SudokuGenerationWindow::SudokuGenerationWindow(QWidget *parent, QString difficul
     ui->setupUi(this);
     ui->gridLayout->setSpacing(10);
     QVector<QGridLayout*> grids;
-    for (int i = 0; i < 3; i++)
+    if (difficulty1 == "Giant")
+        size = 4;
+    else
     {
-        for(int j = 0; j < 3; j++)
+        size = 3;
+        this->resize(459, 451);
+        ui->checkButton->setGeometry(330, 100, ui->checkButton->width(), ui->checkButton->height());
+        ui->hintButton->setGeometry(330, 150, ui->hintButton->width(), ui->hintButton->height());
+        ui->clearButton->setGeometry(330, 200, ui->clearButton->width(), ui->clearButton->height());
+        ui->showSolutionButton->setGeometry(330, 250, ui->showSolutionButton->width(), ui->showSolutionButton->height());
+        ui->saveButton->setGeometry(330, 320, ui->saveButton->width(), ui->saveButton->height());
+        ui->quitButton->setGeometry(330, 400, ui->quitButton->width(), ui->quitButton->height());
+        ui->rulesButton->setGeometry(20, 420, ui->rulesButton->width(), ui->rulesButton->height());
+        ui->lcdNumber->setGeometry(330, 10, ui->lcdNumber->width(), ui->lcdNumber->height());
+    }
+    ui->gridLayout->setGeometry(QRect(20, 100, 500, 500));
+    ui->gridLayout->minimumSize().setHeight(500);
+    ui->gridLayout->minimumSize().setWidth(500);
+    ui->gridLayout->maximumSize().setHeight(500);
+    ui->gridLayout->maximumSize().setWidth(500);
+    ui->gridLayout->setSizeConstraint(QLayout::SetMinAndMaxSize);
+    for (int i = 0; i < size; i++)
+    {
+        for(int j = 0; j < size; j++)
         {
             grids.push_back(new QGridLayout);
             grids.back()->minimumSize().setHeight(90);
@@ -21,9 +42,9 @@ SudokuGenerationWindow::SudokuGenerationWindow(QWidget *parent, QString difficul
             grids.back()->setSpacing(0);
             ui->gridLayout->addLayout(grids.back(), i, j);
         }
-        for (int j = 0; j < 3; j++)
+        for (int j = 0; j < size; j++)
         {
-            for (int k = 0; k < 9; k++)
+            for (int k = 0; k < pow(size, 2); k++)
             {
                 cells.push_back(new QLineEdit);
                 cells.back()->setFixedHeight(30);
@@ -33,12 +54,17 @@ SudokuGenerationWindow::SudokuGenerationWindow(QWidget *parent, QString difficul
                 font.setPixelSize(17);
                 cells.back()->setFont(font);
                 cells.back()->setStyleSheet("QLineEdit{	border-width: 1px; background-color: white; border-color:black}  QLineEdit:hoover{border-width: 1px;	; color: blue; background-color: white; border-color:black}");
-                grids[3*i + k / 3]->addWidget(cells.back(), j, k % 3);
+                grids[size*i + k / size]->addWidget(cells.back(), j, k % size);
             }
         }
     }
-    QRegularExpression rx("[1-9]");
-    for (int i = 0; i < 81; i++)
+    QRegularExpression rx;
+    if (size == 3)
+        rx.setPattern("[1-9]");
+    else
+        rx.setPattern("[1-9][0-9]");
+
+    for (int i = 0; i < pow(size, 4); i++)
         cells[i]->setValidator(new QRegularExpressionValidator(rx, this));
     timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(onTimeout()));
@@ -52,13 +78,13 @@ SudokuGenerationWindow::SudokuGenerationWindow(QWidget *parent, QString difficul
         timer->start(1000);
         mistakes = 0;
         time = 0;
-        for (int i = 0; i < 9; i++)
-            for (int j = 0; j < 9; j++)
+        for (int i = 0; i < pow(size, 2); i++)
+            for (int j = 0; j < pow(size, 2); j++)
                 if (randomSudoku[i][j]!=0)
                 {
-                    cells[i*9 + j]->setText(QString::number(randomSudoku[i][j]));
-                    cells[i*9 + j]->setReadOnly(true);
-                    cells[i*9 + j]->setStyleSheet("color: black");
+                    cells[i*pow(size, 2) + j]->setText(QString::number(randomSudoku[i][j]));
+                    cells[i*pow(size, 2) + j]->setReadOnly(true);
+                    cells[i*pow(size, 2) + j]->setStyleSheet("color: black");
                 }
     }
     else
@@ -113,7 +139,7 @@ SudokuGenerationWindow::SudokuGenerationWindow(QWidget *parent, QString difficul
            sudoku.setGrid(grid1);
         }
     }
-    for (int i = 0; i < 81; i++)
+    for (int i = 0; i < pow(size, 4); i++)
     {
          connect(cells[i], SIGNAL(textEdited(const QString &)), this, SLOT(checkForCorrect()));
     }
@@ -171,16 +197,16 @@ void SudokuGenerationWindow::on_hintButton_clicked()
     int ind, value;
     int**grid = sudoku.getGrid();
     QVector<int> avail;
-    for (int i = 0; i < 9; i++)
-        for(int j = 0; j < 9; j++)
-            if ((cells[i*9 + j]->text()).toInt() != grid[i][j])
-                avail.push_back(i*9 + j);
+    for (int i = 0; i < pow(size, 2); i++)
+        for(int j = 0; j < pow(size, 2); j++)
+            if ((cells[i*pow(size, 2) + j]->text()).toInt() != grid[i][j])
+                avail.push_back(i*pow(size, 2) + j);
     ind = -1;
     if (!avail.empty())
     {
         int r = rand()%(avail.size());
         ind = avail.at(r);
-        value = grid[ind / 9][ind % 9];
+        value = grid[(int)(ind / (pow(size, 2)))][ind % ((int)pow(size, 2))];
     }
     if (ind != -1)
     {
@@ -188,8 +214,8 @@ void SudokuGenerationWindow::on_hintButton_clicked()
     cells[ind]->setStyleSheet("color: purple");
     cells[ind]->setReadOnly(true);
     int r, c;
-    r = ind / 9 + 1;
-    c = ind% 9 + 1;
+    r = ind / (pow(size, 2)) + 1;
+    c = ind % ((int)pow(size, 2)) + 1;
     QMessageBox::about(0, "Hint", "In (" + QString::number(r) + " row, " + QString::number(c) + " column) you sholud put: " + QString::number(value));
     }
 }
@@ -199,14 +225,14 @@ void SudokuGenerationWindow::on_showSolutionButton_clicked()
     timer->stop();
     //sudoku.showSolutions(cells);
     int**result = sudoku.getGrid();
-    for (int i = 0; i < 9; i++)
-        for(int j = 0; j < 9; j++)
+    for (int i = 0; i < pow(size, 2); i++)
+        for(int j = 0; j < pow(size, 2); j++)
         {
-            cells[i*9 + j]->setReadOnly(true);
-            if ((cells[i*9 + j]->text()).toInt() != result[i][j])
+            cells[i*pow(size, 2) + j]->setReadOnly(true);
+            if ((cells[i*pow(size, 2) + j]->text()).toInt() != result[i][j])
             {
-                cells[i*9 + j]->setText(QString::number(result[i][j]));
-                cells[i*9 + j]->setStyleSheet("background-color: white; color: black");
+                cells[i*pow(size, 2) + j]->setText(QString::number(result[i][j]));
+                cells[i*pow(size, 2) + j]->setStyleSheet("background-color: white; color: black");
             }
         }
     ui->hintButton->setEnabled(false);
@@ -247,16 +273,16 @@ void SudokuGenerationWindow::on_saveButton_clicked()
     QFile saveFile(QDir::currentPath() + "\\saves.txt");
     saveFile.open(QIODevice::WriteOnly);
     QString s = "";
-    for (int i = 0; i < 9; i++)
+    for (int i = 0; i < pow(size, 2); i++)
     {
         s = "";
 
-        for (int j = 0; j < 9; j++)
+        for (int j = 0; j < pow(size, 2); j++)
             s = s + QString::number(grid1[i][j]) + " ";
         s = s + "\n";
         saveFile.write(s.toUtf8());
     }
-    for (int  i = 0; i < 81; i++)
+    for (int  i = 0; i < pow(size, 3); i++)
     {
         s = "";
         if (cells[i]->text()!="")
@@ -273,7 +299,7 @@ void SudokuGenerationWindow::checkForCorrect()
 {
     QLineEdit *line = (QLineEdit*) sender();
     int ind;
-    for (int i = 0; i < 81; i++)
+    for (int i = 0; i < pow(size, 4); i++)
         if (cells[i] == line)
             ind = i;
     if ((!sudoku.isCorrect(ind, (cells[ind]->text()).toInt()))&&(line->text()!=""))

@@ -1,5 +1,6 @@
 #include "dlx.h"
 #include <iostream>
+#include<math.h>
 
 using namespace std;
 
@@ -8,11 +9,12 @@ using namespace std;
     head = nullptr;
 }*/
 
-DLX::DLX()
+DLX::DLX(int size1)
 {
+    size = size1;
     head = new Node();
     Node* current = head;
-    for (int i = 0; i < 324; i++)
+    for (int i = 0; i < pow(size, 4)*4; i++)
     {
         Node* newNode = new Node();
         newNode->colID = i;
@@ -29,6 +31,7 @@ DLX::DLX()
 
 DLX::DLX(DLX*&DLX1)
 {
+    size = DLX1->getSize();
     head = new Node(DLX1->head);
     Node* current1 = DLX1->head->right;
     Node* current = new Node(current1);
@@ -236,7 +239,7 @@ Node* DLX::getColumn(Node* current)
 Node* DLX::getNode(int r)
 {
     Node* current = head;
-    while (current->colID < r / 9)
+    while (current->colID < r / pow(size, 2))
     {
         current = current->right;
     }

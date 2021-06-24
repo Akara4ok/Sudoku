@@ -36,6 +36,12 @@ void DifficultyWindow::on_expertButton_clicked()
     delete this;
 }
 
+void DifficultyWindow::on_giantButton_clicked()
+{
+    this->close();
+    emit giant();
+    delete this;
+}
 
 void DifficultyWindow::on_backButton_clicked()
 {
@@ -43,5 +49,3 @@ void DifficultyWindow::on_backButton_clicked()
     emit mainWindow();
     delete this;
 }
-
-

@@ -63,6 +63,21 @@ void MainWindow::expertSudoku()
     connect(sudokuGeneration, &SudokuGenerationWindow::saveGame, this, &MainWindow::enableContinue);
 }
 
+void MainWindow::giantSudoku()
+{
+    QFile saveFile(QDir::currentPath() + "\\saves.txt");
+    if(saveFile.exists())
+    {
+        saveFile.remove();
+        ui->continueButton->setEnabled(false);
+    }
+    sudokuGeneration = new SudokuGenerationWindow(nullptr, "Giant");
+    sudokuGeneration->show();
+    connect(sudokuGeneration, &SudokuGenerationWindow::showResults, this, &MainWindow::showR);
+    connect(sudokuGeneration, &SudokuGenerationWindow::mainWindow, this, &MainWindow::show);
+    connect(sudokuGeneration, &SudokuGenerationWindow::saveGame, this, &MainWindow::enableContinue);
+}
+
 void MainWindow::on_newGameButton_clicked()
 {
     difficulty = new DifficultyWindow();
@@ -70,6 +85,7 @@ void MainWindow::on_newGameButton_clicked()
     connect(difficulty, &DifficultyWindow::easy, this, &MainWindow::easySudoku);
     connect(difficulty, &DifficultyWindow::medium, this, &MainWindow::mediumSudoku);
     connect(difficulty, &DifficultyWindow::expert, this, &MainWindow::expertSudoku);
+    connect(difficulty, &DifficultyWindow::giant, this, &MainWindow::giantSudoku);
     this->close();
     difficulty->show();
 }
